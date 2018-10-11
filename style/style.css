@@ -1,0 +1,19 @@
+body{
+
+}
+
+.table{
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+
+
+}
+
+
+#cartaServer{
+  text-align: center;
+}
+#cartasCliente{
+  border: 1px solid black;
+}
