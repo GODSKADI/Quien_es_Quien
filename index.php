@@ -10,13 +10,29 @@
       <h1>Quien es Quien?</h1>
     </head>
     <?php
-    echo "<div id='cartaServer'>Carta server</div>\n";
+    $imgArray = [
+    "IQ.png" => "IQ",
+    "Ela.png" => "Ela",
+    "Maverick.png" => "Maverick",
+    "BlackBeard.png" => "BlackBeard",
+    "Caveira.png" => "Caveira",
+    "Lord.png" => "Lord",
+    "Kapkan.png" => "Kapkan",
+    "Lesion.png" => "Lesion",
+    "Mira.png" => "Mira",
+    "Buck.png" => "Buck",
+    "Rook.png" => "Rook",
+    "Zofia.png" => "Zofia"
+    ];
+    $imgSelecServer = array_rand($imgArray);
+
+    echo "<div id='cartaServer'><img src='imagenes/$imgSelecServer'></div>\n";
     echo "<div id='cartasCliente'\n><table class='table' id='tablacartas'>\n";
       for ($i=0; $i < 3; $i++) {
         echo "<tr>";
         for ($j=0; $j < 3; $j++) {
-
-          echo "<td class='table'>carta client ".$j."</td>\n";
+          $imgSelecCliente = array_rand($imgArray);
+            echo "<td><img src='imagenes/$imgSelecCliente'></td>\n";
         }
         echo "</tr>";
       }
