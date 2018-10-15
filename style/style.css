@@ -3,17 +3,25 @@ body{
 }
 
 .table{
-  border-collapse: collapse;
-  border: 1px solid black;
+
   width: 100%;
-
-
+  text-align: center;
 }
-
 
 #cartaServer{
   text-align: center;
 }
+
 #cartasCliente{
   border: 1px solid black;
+}
+
+img{
+  width: 100px;
+  height: 150px;
+  border: 1px solid black;
+}
+
+#imgServer{
+  visibility: hidden;
 }
