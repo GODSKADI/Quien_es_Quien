@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script type="text/javascript" src="scrip/script.js"></script>
     <title>Quien es Quien?</title>
   </head>
   <body>
@@ -26,7 +27,7 @@
     ];
     $imgSelecServer = array_rand($imgArray);
     $repetidos = [];
-    echo "<div id='cartaServer'><img src='imagenes/$imgSelecServer'></div>\n";
+    echo "<div id='cartaServer'><img src='imagenes/back_img.jpg'><img id='imgServer' src='imagenes/$imgSelecServer'></div>\n";
     echo "<div id='cartasCliente'\n><table class='table' id='tablacartas'>\n";
       for ($i=0; $i < 3; $i++) {
         echo "<tr>";
