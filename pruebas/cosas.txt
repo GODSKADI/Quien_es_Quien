@@ -1,6 +1,0 @@
-ulleres_si
-cabell_ros
-sexe_homa
-ulleres_no
-cabell_castany
-sexe_dona
