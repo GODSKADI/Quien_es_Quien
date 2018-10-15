@@ -25,14 +25,18 @@
     "Zofia.png" => "Zofia"
     ];
     $imgSelecServer = array_rand($imgArray);
-
+    $repetidos = [];
     echo "<div id='cartaServer'><img src='imagenes/$imgSelecServer'></div>\n";
     echo "<div id='cartasCliente'\n><table class='table' id='tablacartas'>\n";
       for ($i=0; $i < 3; $i++) {
         echo "<tr>";
-        for ($j=0; $j < 3; $j++) {
+        for ($j=0; $j < 4;) {
           $imgSelecCliente = array_rand($imgArray);
+          if(in_array($imgSelecCliente, $repetidos) === false){
             echo "<td><img src='imagenes/$imgSelecCliente'></td>\n";
+            array_push($repetidos, $imgSelecCliente);
+            $j++;
+          }
         }
         echo "</tr>";
       }
