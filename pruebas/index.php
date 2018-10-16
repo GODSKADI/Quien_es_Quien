@@ -22,16 +22,16 @@
     if(!file_exists($imag)){
       exit("File Imagenes Not found");
     }
+    echo "<br>";
     $imagenes = array();
-    $imagen= array();
+    $imagen;
     $filas = file($imag);
     foreach ($filas as $key => $value) {
-      array_push($imagen,$value);
+      $imagen= preg_split("/[\s,:]+/",$value);
+      array_push($imagenes,$imagen);
     }
-    print_r($imagen);
-    $entrada = "imagen12.jpg : ulleres: no , cabell: negre , sexe: dona";
-    $cosas = explode(' ',$entrada);
-    print_r($cosas);
+    print_r($imagenes);
+    echo "<br>";
      ?>
   </body>
 </html>
