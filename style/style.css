@@ -8,20 +8,66 @@ body{
   text-align: center;
 }
 
-#cartaServer{
-  text-align: center;
-}
 
-#cartasCliente{
-  border: 1px solid black;
-}
 
 img{
-  width: 100px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border: 1px solid black;
 }
 
-#imgServer{
-  visibility: hidden;
+/*
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 200px;
+	height: 200px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+
+*/
+
+
+#card {
+    width: 50px;
+    height: 50px;
+    padding:25px;
+    background-color: black;
+    color: white;
+    font-family:'Arial', sans-serif;
 }
