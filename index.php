@@ -9,7 +9,7 @@
   <body background="imagenes/background.jpg">
     <head>
       <div id="container">
-        <p><a>QUIEN ES QUIEN?</a></p>
+        <p><a>¿QUIEN ES QUIEN?</a></p>
       </div>
     </head>
     <?php
