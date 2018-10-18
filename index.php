@@ -13,24 +13,24 @@
       </div>
     </head>
     <?php
-    //Escritura de archivos
-    $fp = fopen("log.txt", "a");
-    fwrite($fp, "Primera prueba de escritura en un archivo.". PHP_EOL);
-    fclose($fp);
 
-    $filas = 3;
-    $columnas = 4;
-    $totalCeldas = ($filas * $columnas / 2);
 
     //-------------------------------------------------------------------------------------//
     //Del archivo config.txt a array
     $config = "config.txt";
     if(!file_exists($config)){
+      $fp = fopen("log.txt","a");
+      fwrite($fp, "File Config Not found" . PHP_EOL);
+      fclose($fp);
       exit("File Config Not found");
+
     }
     //Del archivo imagenes.txt a array
     $imag = "imagenes.txt";
     if(!file_exists($imag)){
+      $fp = fopen("log.txt","a");
+      fwrite($fp, "File Imagenes Not found" . PHP_EOL);
+      fclose($fp);
       exit("File Imagenes Not found");
     }
     //Split a array para tener solo los canpos con Strings sin caracteres especiales
@@ -54,18 +54,27 @@
       $filaAux =trim($fila[2],"\n");
       $cartesAux = trim($cartes[$auxU]," \t\n\r");
       if($filaAux!=$cartesAux){
+        $fp = fopen("log.txt","a");
+        fwrite($fp, "Error en la configuracion mire el archivo log" . PHP_EOL);
+        fclose($fp);
         exit("Error en la configuracion mire el archivo log");
       }
       $auxU = $auxU+3;//posicion del atributo +3 posiciones
       $filaAux = trim($fila[4],"\n");
       $cartesAux = trim($cartes[$auxC]," \t\n\r");
       if($filaAux!=$cartesAux){
+        $fp = fopen("log.txt","a");
+        fwrite($fp, "Error en la configuracion mire el archivo log" . PHP_EOL);
+        fclose($fp);
         exit("Error en la configuracion mire el archivo log");
       }
       $auxC = $auxC +3;//posicion del atributo +3 posiciones
       $filaAux = trim($fila[6],"\n");
       $cartesAux = trim($cartes[$auxS]," \t\n\r");
       if($filaAux!=$cartesAux){
+        $fp = fopen("log.txt","a");
+        fwrite($fp, "Error en la configuracion mire el archivo log" . PHP_EOL);
+        fclose($fp);
         exit("Error en la configuracion mire el archivo log");
       }
       $auxS = $auxS +3;
@@ -75,6 +84,9 @@
       for ($i=0; $i<12 ; $i++) {
         $iterador =$i+$z+1;
         if($imagenes[$z]==$imagenes[$iterador]){
+          $fp = fopen("log.txt","a");
+          fwrite($fp, "Error en las imagenes" . PHP_EOL);
+          fclose($fp);
           exit ("Error en las imagenes");
         }
       }
