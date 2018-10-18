@@ -6,9 +6,11 @@
     <script type="text/javascript" src="script/script.js"></script>
     <title>Quien es Quien?</title>
   </head>
-  <body>
+  <body background="imagenes/background.jpg">
     <head>
-      <h1>Quien es Quien?</h1>
+      <div id="container">
+        <p><a>QUIEN ES QUIEN?</a></p>
+      </div>
     </head>
     <?php
     //Escritura de archivos
@@ -94,26 +96,15 @@
     ];
     $imgSelecServer = array_rand($imgArray);
     $repetidos = [];
-
-    /*echo "<div id='cartaServer'>";
-      echo "<div class='flip-container' ontouchstart='this.classList.toggle('hover');'>";
-        echo "<div class = 'flipper'>";
-          echo "<div class ='front'><img src='imagenes/back_img.jpg'></div>";
-          echo "<div class = 'back'><img src='imagenes/$imgSelecServer'></div>";
-        echo "</div>\n";
-      echo "</div>";
-    echo "</div>";*/
-
-    echo "<div id='cartaServer'>";
-      echo "<div class='flip-container' onclick='flip()'>";
-        echo "<div>";
-          //echo "<div class ='front'><img src='imagenes/back_img.jpg'></div>";
-          echo "<div id ='card'><img src='imagenes/$imgSelecServer'></div>";
-        echo "</div>\n";
+    $c = 0;
+    echo "<div class='contenedorCartaServer'>";
+      echo "<div id='cartaServer' class='cartaServer'>";
+          echo "<div '><img src='imagenes/$imgSelecServer' hidden></div>";
+          echo "<div><img src='imagenes/back_img.jpg'></div>";
       echo "</div>";
     echo "</div>";
 
-    echo "<div id ='cartasCliente' class= 'cartasCliente'\n>";
+    echo "<div class ='contenedorCartasCliente' class= 'cartasCliente'\n>";
     echo "<table class='table' id='tablacartas'>\n";
       for ($i=0; $i < 3; $i++) {
         echo "<tr>";
@@ -121,15 +112,14 @@
           $imgSelecCliente = array_rand($imgArray);
           if(in_array($imgSelecCliente, $repetidos) === false){
             echo "<td>";
-            echo "<div class='flip-container' ontouchstart='this.classList.toggle('hover');'>";
-              echo "<div class = 'flipper'>";
-                echo "<div class ='front'><img src='imagenes/$imgSelecCliente'></div>\n";
-                echo "<div class = 'back'><img src='imagenes/back_img.jpg'></div>\n";
-              echo "</div>";
+            echo "<div id='carta$c' class='cartaCliente' onclick='flip($c)'>";
+                echo "<div class='front' ><img src='imagenes/$imgSelecCliente'></div>";
+                echo "<div class='back'><img src='imagenes/back_img.jpg'></div>";
             echo "</div>";
             echo "</td>";
             array_push($repetidos, $imgSelecCliente);
             $j++;
+            $c++;
           }
         }
         echo "</tr>";

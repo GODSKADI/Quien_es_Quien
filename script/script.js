@@ -1,9 +1,7 @@
-var k = 0;
 
-function flip() {
-    var j = document.getElementById("card");
-    k += 180;
-    j.style.transform = "rotatey(" + k + "deg)";
-    j.style.transitionDuration = "0.5s"
 
+function flip(c) {
+    var idCarta = document.getElementById("carta"+c+"");
+    idCarta.classList.toggle("flipped");
+    idCarta.removeAttribute("onclick");
 }
