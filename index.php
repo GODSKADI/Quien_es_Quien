@@ -54,6 +54,7 @@
       $filaAux =trim($fila[2],"\n");
       $cartesAux = trim($cartes[$auxU]," \t\n\r");
       if($filaAux!=$cartesAux){
+        //Abrimos, escribimos (el error que nos devuleve) y cerramos el archivo log.txt
         $fp = fopen("log.txt","a");
         fwrite($fp, "Error en la configuracion mire el archivo log" . PHP_EOL);
         fclose($fp);
@@ -63,6 +64,7 @@
       $filaAux = trim($fila[4],"\n");
       $cartesAux = trim($cartes[$auxC]," \t\n\r");
       if($filaAux!=$cartesAux){
+        //Abrimos, escribimos (el error que nos devuleve) y cerramos el archivo log.txt
         $fp = fopen("log.txt","a");
         fwrite($fp, "Error en la configuracion mire el archivo log" . PHP_EOL);
         fclose($fp);
@@ -72,6 +74,7 @@
       $filaAux = trim($fila[6],"\n");
       $cartesAux = trim($cartes[$auxS]," \t\n\r");
       if($filaAux!=$cartesAux){
+        //Abrimos, escribimos (el error que nos devuleve) y cerramos el archivo log.txt
         $fp = fopen("log.txt","a");
         fwrite($fp, "Error en la configuracion mire el archivo log" . PHP_EOL);
         fclose($fp);
@@ -84,6 +87,7 @@
       for ($i=0; $i<12 ; $i++) {
         $iterador =$i+$z+1;
         if($imagenes[$z]==$imagenes[$iterador]){
+          //Abrimos, escribimos (el error que nos devuleve) y cerramos el archivo log.txt
           $fp = fopen("log.txt","a");
           fwrite($fp, "Error en las imagenes" . PHP_EOL);
           fclose($fp);
@@ -92,6 +96,7 @@
       }
     }
     //--------------------------------------------------------------------//
+    //Array de imagenes
     $imgArray = [
     "imagen1.png" => "imagen1",
     "imagen2.png" => "imagen2",
@@ -106,27 +111,30 @@
     "imagen11.png" => "imagen11",
     "imagen12.png" => "imagen12"
     ];
+    //Random del Array de imagenes para la carta del servidor
     $imgSelecServer = array_rand($imgArray);
     $repetidos = [];
     $c = 0;
     echo "<div class='contenedorCartaServer'>";
       echo "<div id='cartaServer' class='cartaServer'>";
-          echo "<div '><img src='imagenes/$imgSelecServer' hidden></div>";
+          echo "<div><img src='imagenes/$imgSelecServer' hidden></div>";
           echo "<div><img src='imagenes/back_img.jpg'></div>";
       echo "</div>";
     echo "</div>";
-
+    //Contenedor con tabla para las cartas del Cliente
     echo "<div class ='contenedorCartasCliente' class= 'cartasCliente'\n>";
     echo "<table class='table' id='tablacartas'>\n";
       for ($i=0; $i < 3; $i++) {
         echo "<tr>";
         for ($j=0; $j < 4;) {
+          //Random del Array de imagenes sin repeticiones
+          //$c para diferenciar id's y que no se repitan
           $imgSelecCliente = array_rand($imgArray);
           if(in_array($imgSelecCliente, $repetidos) === false){
             echo "<td>";
-            echo "<div id='carta$c' class='cartaCliente' onclick='flip($c)'>";
-                echo "<div class='front' ><img src='imagenes/$imgSelecCliente'></div>";
-                echo "<div class='back'><img src='imagenes/back_img.jpg'></div>";
+            echo "<div id='carta$c' class='cartaCliente' onclick='girarCartas($c)'>";
+                echo "<div class='frontal' ><img src='imagenes/$imgSelecCliente'></div>";
+                echo "<div class='trasera'><img src='imagenes/back_img.jpg'></div>";
             echo "</div>";
             echo "</td>";
             array_push($repetidos, $imgSelecCliente);

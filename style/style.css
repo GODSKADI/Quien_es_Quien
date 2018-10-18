@@ -134,7 +134,7 @@ img{
   border: 5px solid grey;
 }
 
-.front:hover {filter: grayscale(100%);}
+.frontal:hover {filter: grayscale(100%);}
 
 .contenedorCartasCliente{
   margin-top: 1%;
@@ -167,16 +167,16 @@ img{
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
 }
-.cartaCliente .front {
+.cartaCliente .frontal {
   background: none;
 }
-.cartaCliente .back {
+.cartaCliente .trasera {
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
 }
-.cartaCliente.flipped {
+.cartaCliente.girada {
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
