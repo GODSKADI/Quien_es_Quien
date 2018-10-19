@@ -9,7 +9,7 @@
   <body background="imagenes/background.jpg">
     <head>
       <div id="container">
-        <p><a>¿QUIEN ES QUIEN?</a></p>
+        <p class="titulo"><a>¿QUIEN ES QUIEN?</a></p>
       </div>
     </head>
     <?php
@@ -116,11 +116,26 @@
     $repetidos = [];
     $c = 0;
     echo "<div class='contenedorCartaServer'>";
+      echo "<div class='ranking1'><p class='ranking'><a>Ranking</a></p>
+                <p class='posiciones'>1</p>
+                <p class='posiciones'>2</p>
+                <p class='posiciones'>3</p>
+                <p class='posiciones'>4</p>
+                <p class='posiciones'>5</p>
+            </div>";
+      echo "<div class='ranking2'><p class='ranking'><a>Ranking</a></p>
+                <p class='posiciones'>6</p>
+                <p class='posiciones'>7</p>
+                <p class='posiciones'>8</p>
+                <p class='posiciones'>9</p>
+                <p class='posiciones'>10</p>
+            </div>";
       echo "<div id='cartaServer' class='cartaServer'>";
           echo "<div><img src='imagenes/$imgSelecServer' hidden></div>";
           echo "<div><img src='imagenes/back_img.jpg'></div>";
       echo "</div>";
     echo "</div>";
+    //echo "<div class='contenedorGeneral'>";
     //Contenedor con tabla para las cartas del Cliente
     echo "<div class ='contenedorCartasCliente' class= 'cartasCliente'\n>";
     echo "<table class='table' id='tablacartas'>\n";
@@ -145,6 +160,36 @@
         echo "</tr>";
       }
       echo "</table></div>";
+      echo "<div class='contenedorCombo'>";
+      echo "<h2 id='validacion'></h2>";
+      echo "<h2>Preguntas</h2>";
+      echo "<div class='combo1'>
+          <select id='pelo'>
+          <option value='null'></option>
+          <option value='rubio'>El color del pelo es rubio?</option>
+          <option value='moreno'>El color del pelo es Moreno?</option>
+          <optionvalue='negro'>El color del pelo es Negro?</option>
+          </select>
+          <div><p class='respuestaServerPelo'></p></div>
+      </div>";
+      echo "<div class='combo2'>
+          <select id='sexo'>
+          <option value='null'></option>
+          <option value='hombre'>Es un Hombre?</option>
+          <option value='mujer'>Es una Mujer?</option>
+          </select>
+          <div><p class='respuestaServerSexo'></p></div>
+      </div>";
+      echo "<div class='combo3'>
+          <select id='gafas'>
+          <option value='null'></option>
+          <option value='gafas'>Tiene gafas?</option>
+          <option value='no_gafas'>No tiene gafas?</option>
+          </select>
+          <div><p class='respuestaServerGafas'></p></div>
+      </div>";
+      echo "<input type='button' value='Preguntar' onclick='validar()'></input>";
+      echo "</div>";
      ?>
   </body>
 </html>
