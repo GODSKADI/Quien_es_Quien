@@ -16,83 +16,106 @@
 
 
     //-------------------------------------------------------------------------------------//
-    //Del archivo config.txt a array
+    //config
     $config = "config.txt";
     if(!file_exists($config)){
-      $fp = fopen("log.txt","a");
-      fwrite($fp, "File Config Not found" . PHP_EOL);
-      fclose($fp);
       exit("File Config Not found");
-
     }
-    //Del archivo imagenes.txt a array
+    //imagenes
     $imag = "imagenes.txt";
     if(!file_exists($imag)){
-      $fp = fopen("log.txt","a");
-      fwrite($fp, "File Imagenes Not found" . PHP_EOL);
-      fclose($fp);
       exit("File Imagenes Not found");
     }
-    //Split a array para tener solo los canpos con Strings sin caracteres especiales
-    $cartes= array();
+    $configUlleres= array();
+    $configCabell= array();
+    $configSexe= array();
     $lineas = file($config);
-    foreach ($lineas as $num_linea => $linea) {
-      array_push($cartes,strrchr($linea," "));
+    for ($i=0; $i <3 ; $i++) {
+      $auxiliar = "";
+      if($i==0){
+        $auxiliar = preg_split("/[\s:]+/",$lineas[$i]);
+        for ($j=1; $j <(count($auxiliar)-1); $j++) {
+          array_push($configUlleres,$auxiliar[$j]);
+        }
+      }
+      if($i==1){
+        $auxiliar = preg_split("/[\s:]+/",$lineas[$i]);
+        for ($j=1; $j <(count($auxiliar)-1); $j++) {
+          array_push($configCabell,$auxiliar[$j]);
+        }
+      }
+      if($i==2){
+        $auxiliar = preg_split("/[\s:]+/",$lineas[$i]);
+        for ($j=1; $j <(count($auxiliar)-1); $j++) {
+          array_push($configSexe,$auxiliar[$j]);
+        }
+      }
     }
-    //Variables para deteccion de errores
+    echo "<br>";
     $imagenes = array();
+    $Ulleress = array();
+    $Cabells = array();
+    $Sexes = array();
     $fila;
     $filas = file($imag);
-    //auxiliares para la posicion de los atributos de las cartas
-    $auxU = 0;
-    $auxC = 1;
-    $auxS = 2;
-    //Split del archivo imagenes a la vez que conprovamos errores de formato
     foreach ($filas as $key => $value) {
-      $fila= preg_split("/[\s,:]+/",$value);//split del campo
-      array_push($imagenes,$fila[0]);//guardamos el nombre de la imagen
-      $filaAux =trim($fila[2],"\n");
-      $cartesAux = trim($cartes[$auxU]," \t\n\r");
-      if($filaAux!=$cartesAux){
-        //Abrimos, escribimos (el error que nos devuleve) y cerramos el archivo log.txt
-        $fp = fopen("log.txt","a");
-        fwrite($fp, "Error en la configuracion mire el archivo log" . PHP_EOL);
-        fclose($fp);
-        exit("Error en la configuracion mire el archivo log");
-      }
-      $auxU = $auxU+3;//posicion del atributo +3 posiciones
-      $filaAux = trim($fila[4],"\n");
-      $cartesAux = trim($cartes[$auxC]," \t\n\r");
-      if($filaAux!=$cartesAux){
-        //Abrimos, escribimos (el error que nos devuleve) y cerramos el archivo log.txt
-        $fp = fopen("log.txt","a");
-        fwrite($fp, "Error en la configuracion mire el archivo log" . PHP_EOL);
-        fclose($fp);
-        exit("Error en la configuracion mire el archivo log");
-      }
-      $auxC = $auxC +3;//posicion del atributo +3 posiciones
-      $filaAux = trim($fila[6],"\n");
-      $cartesAux = trim($cartes[$auxS]," \t\n\r");
-      if($filaAux!=$cartesAux){
-        //Abrimos, escribimos (el error que nos devuleve) y cerramos el archivo log.txt
-        $fp = fopen("log.txt","a");
-        fwrite($fp, "Error en la configuracion mire el archivo log" . PHP_EOL);
-        fclose($fp);
-        exit("Error en la configuracion mire el archivo log");
-      }
-      $auxS = $auxS +3;
+      $fila= preg_split("/[\s,:]+/",$value);
+      array_push($imagenes,$fila[0]);
+      array_push($Ulleress,$fila[2]);//Ulleres
+      array_push($Cabells,$fila[4]);//cabell
+      array_push($Sexes,$fila[6]);//Sexe
     }
-    //Comprobar nombres de imagenes duplicadas
+    //Primer error de la imagenes
     for ($z=0; $z <12 ; $z++) {
-      for ($i=0; $i<12 ; $i++) {
-        $iterador =$i+$z+1;
-        if($imagenes[$z]==$imagenes[$iterador]){
-          //Abrimos, escribimos (el error que nos devuleve) y cerramos el archivo log.txt
-          $fp = fopen("log.txt","a");
-          fwrite($fp, "Error en las imagenes" . PHP_EOL);
-          fclose($fp);
-          exit ("Error en las imagenes");
+      //echo "<p>-$imagenes[$z]-</p>";
+        for ($i=0; $i<12 ; $i++) {
+          $iterador =$i+$z+1;
+          if($imagenes[$z]==$imagenes[$iterador]){
+            $fp = fopen("log.txt","a");
+            $now = date("Y-m-d H:i:s");
+            fwrite($fp, "$now | Error en la configuracion imagenes duplicadas" . PHP_EOL);
+            fclose($fp);
+            exit ("Error en las imagenes");
+          }
         }
+      }
+      //Error caracteristics iguales
+    for ($g=0; $g <count($Ulleress) ; $g++) {
+        for ($i=$g+1; $i <count($Ulleress) ; $i++) {
+          if(($Ulleress[$g]==$Ulleress[$i]) && ($Cabells[$g]==$Cabells[$i]) && ($Sexes[$g]==$Sexes[$i])){
+            $fp = fopen("log.txt","a");
+            $now = date("Y-m-d H:i:s");
+            fwrite($fp, "$now | Error en la configuracion Caracteristicas iguales" . PHP_EOL);
+            fclose($fp);
+            exit ("Error consulte el archivo log.txt para mas informacion");
+          }
+        }
+    }
+
+    for ($i=0; $i <count($imagenes); $i++) {
+      if(in_array($Ulleress[$i],$configUlleres)){
+      }else{
+        $fp = fopen("log.txt","a");
+        $now = date("Y-m-d H:i:s");
+        fwrite($fp, "$now | Error en la configuracion Caracteristicas diferentes en el archivo Img - Conf" . PHP_EOL);
+        fclose($fp);
+        exit ("Error consulte el archivo log.txt para mas informacion");
+      }
+      if(in_array($Cabells[$i],$configCabell)){
+      }else{
+        $fp = fopen("log.txt","a");
+        $now = date("Y-m-d H:i:s");
+        fwrite($fp, "$now | Error en la configuracion Caracteristicas diferentes en el archivo Img - Conf" . PHP_EOL);
+        fclose($fp);
+        exit ("Error consulte el archivo log.txt para mas informacion");
+      }
+      if(in_array($Sexes[$i],$Sexes)){
+      }else{
+        $fp = fopen("log.txt","a");
+        $now = date("Y-m-d H:i:s");
+        fwrite($fp, "$now | Error en la configuracion Caracteristicas diferentes en el archivo Img -Conf" . PHP_EOL);
+        fclose($fp);
+        exit ("Error consulte el archivo log.txt para mas informacion");
       }
     }
     //--------------------------------------------------------------------//

@@ -1,4 +1,4 @@
-imagen1.jpg : ulleres: si , cabell: ros , sexe: home
+imagen1.jpg : ulleres: i , cabell: ros , sexe: home
 imagen2.jpg : ulleres: si , cabell: castany , sexe: home
 imagen3.jpg : ulleres: si , cabell: negre , sexe: home
 imagen4.jpg : ulleres: no , cabell: ros , sexe: home
