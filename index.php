@@ -189,6 +189,7 @@
           <div><p class='respuestaServerGafas'></p></div>
       </div>";
       echo "<input type='button' value='Preguntar' onclick='validar()'></input>";
+      echo "<input class='easy' type='button' value='EASY'></input>";
       echo "</div>";
      ?>
   </body>

@@ -177,7 +177,13 @@ img{
   border: 5px solid grey;
 }
 
-.frontal:hover {filter: grayscale(100%);}
+.easy{
+  color:  #51ff0b ;
+}
+
+.frontal:hover {
+  filter: grayscale(100%);
+}
 
 .contenedorCartasCliente, .contenedorCombo{
   margin-top: 1%;
