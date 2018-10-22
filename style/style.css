@@ -178,19 +178,22 @@ img{
 }
 
 .easy{
-  color:  #51ff0b ;
+  color: #51ff0b;
 }
 
 .frontal:hover {
   filter: grayscale(100%);
 }
 
-.contenedorCartasCliente, .contenedorCombo{
+.contenedorCombo{
   margin-top: 1%;
   border: 5px solid grey;
   height: auto;
 }
 .contenedorCartasCliente{
+  margin-top: 1%;
+  border: 5px solid grey;
+  height: auto;
   background-color: black;
   float:left;
   width: 60%;
