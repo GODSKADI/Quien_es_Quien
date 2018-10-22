@@ -194,9 +194,9 @@ img{
   margin-top: 1%;
   border: 5px solid grey;
   height: auto;
-  background-color: black;
   float:left;
   width: 60%;
+  background-image: repeating-linear-gradient(#900C3F,   #ffb8d9  10%, #900C3F 20%);
   /*trabajar en pequeño*/
   /*width: 50%;*/
 }
