@@ -199,7 +199,7 @@
           <div><p class='respuestaServerGafas'></p></div>
       </div>";
       echo "<input type='button' value='Preguntar' onclick='validar()'></input>";
-      echo "<input class='easy' type='button' value='EASY'></input>";
+      echo "<input id='easyButon' class='easy' type='button' value='EASY' onclick='easyMode()' ></input>";
       echo "</div>";
      ?>
   </body>

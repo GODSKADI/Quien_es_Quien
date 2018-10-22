@@ -10,7 +10,9 @@ function girarCartas(c) {
       $numCartasGiradas++
     }
 }
-
+function preguntaServidor() {
+  return "ere tonto";
+}
 function validar(){
   var idComboPelo = document.getElementById('pelo');
   var idComboSexo = document.getElementById('sexo');
@@ -23,5 +25,16 @@ function validar(){
     idComboGafas.value = "null";
   }else if(idComboPelo.value == "null" && idComboSexo.value == "null" && idComboGafas.value == "null"){
     idValidacion.innerHTML = "No estas haciendo ninguna pregunta.";
+  }else{
+    /*idValidacion.innerHTML = "cosas para el bot";*/
+    idValidacion.innerHTML = preguntaServidor();
+
   }
+  if(document.getElementById('easyButon').disabled == false){
+    document.getElementById('easyButon').style.visibility = "hidden";
+  }
+
+}
+function easyMode(){
+  document.getElementById('easyButon').disabled = true;
 }
