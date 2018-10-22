@@ -162,9 +162,9 @@
     //Contenedor con tabla para las cartas del Cliente
     echo "<div class ='contenedorCartasCliente' class= 'cartasCliente'\n>";
     echo "<table class='table' id='tablacartas'>\n";
-      for ($i=0; $i < 3; $i++) {
+      for ($i=0; $i < 4; $i++) {
         echo "<tr>";
-        for ($j=0; $j < 4;) {
+        for ($j=0; $j < 3;) {
           //Random del Array de imagenes sin repeticiones
           //$c para diferenciar id's y que no se repitan
           $imgSelecCliente = array_rand($imgArray);
