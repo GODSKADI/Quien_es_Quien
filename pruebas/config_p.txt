@@ -1,36 +1,3 @@
-ulleres: si
-cabell: ros
-sexe: home
-ulleres: si
-cabell: castany
-sexe: home
-ulleres: si
-cabell: negre
-sexe: home
-ulleres: no
-cabell: ros
-sexe: home
-ulleres: no
-cabell: castany
-sexe: home
-ulleres: no
-cabell: negre
-sexe: home
-ulleres: si
-cabell: ros
-sexe: dona
-ulleres: si
-cabell: castany
-sexe: dona
-ulleres: si
-cabell: negre
-sexe: dona
-ulleres: no
-cabell: ros
-sexe: dona
-ulleres: no
-cabell: castany
-sexe: dona
-ulleres: no
-cabell: negre
-sexe: dona
+ulleres: si no
+cabell: ros negre castany
+sexe: home dona
