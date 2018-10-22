@@ -95,6 +95,7 @@
         exit ("Error consulte el archivo log.txt para mas informacion");
       }
     }
+    var_dump($imagenes);
    ?>
   </body>
 </html>

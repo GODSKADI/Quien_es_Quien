@@ -119,23 +119,9 @@
       }
     }
     //--------------------------------------------------------------------//
-    //Array de imagenes
-    $imgArray = [
-    "imagen1.png" => "imagen1",
-    "imagen2.png" => "imagen2",
-    "imagen3.png" => "imagen3",
-    "imagen4.png" => "imagen4",
-    "imagen5.png" => "imagen5",
-    "imagen6.png" => "imagen6",
-    "imagen7.png" => "imagen7",
-    "imagen8.png" => "imagen8",
-    "imagen9.png" => "imagen9",
-    "imagen10.png" => "imagen10",
-    "imagen11.png" => "imagen11",
-    "imagen12.png" => "imagen12"
-    ];
     //Random del Array de imagenes para la carta del servidor
-    $imgSelecServer = array_rand($imgArray);
+    $imgSelecServer = array_rand($imagenes);
+    $imgServer=$imagenes[$imgSelecServer];
     $repetidos = [];
     $c = 0;
     echo "<div class='contenedorCartaServer'>";
@@ -154,7 +140,7 @@
                 <p class='posiciones'>10</p>
             </div>";
       echo "<div id='cartaServer' class='cartaServer'>";
-          echo "<div><img src='imagenes/$imgSelecServer' hidden></div>";
+          echo "<div><img src='imagenes/$imgServer' hidden></div>";
           echo "<div><img src='imagenes/back_img.jpg'></div>";
       echo "</div>";
     echo "</div>";
@@ -167,11 +153,12 @@
         for ($j=0; $j < 3;) {
           //Random del Array de imagenes sin repeticiones
           //$c para diferenciar id's y que no se repitan
-          $imgSelecCliente = array_rand($imgArray);
+          $imgSelecCliente = array_rand($imagenes);
+          $imgCliente = $imagenes[$imgSelecCliente];
           if(in_array($imgSelecCliente, $repetidos) === false){
             echo "<td>";
             echo "<div id='carta$c' class='cartaCliente' onclick='girarCartas($c)'>";
-                echo "<div class='frontal' ><img src='imagenes/$imgSelecCliente'></div>";
+                echo "<div class='frontal' ><img src='imagenes/$imgCliente'></div>";
                 echo "<div class='trasera'><img src='imagenes/back_img.jpg'></div>";
             echo "</div>";
             echo "</td>";
