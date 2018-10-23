@@ -139,9 +139,9 @@
                 <p class='posiciones'>9</p>
                 <p class='posiciones'>10</p>
             </div>";
-      echo "<div id='cartaS' class='cartaServer'>";
+      echo "<div id='cartaServer' data-gafas='$Ulleress[$imgSelecServer]' data-pelo='$Cabells[$imgSelecServer]' data-genero='$Sexes[$imgSelecServer]' class='cartaServer'>";
           echo "<div class='frontalServer'><img src='imagenes/back_img.jpg'></div>";
-          echo "<div class='traseraServer'><img src='imagenes/$imgServer'></div>";
+          echo "<div class='traseraServer'><img src='imagenes/$imgServer' hidden></div>";
       echo "</div>";
     echo "</div>";
     //echo "<div class='contenedorGeneral'>";
@@ -157,9 +157,9 @@
           $imgCliente = $imagenes[$imgSelecCliente];
           if(in_array($imgSelecCliente, $repetidos) === false){
             echo "<td>";
-            echo "<div id='carta$c' class='cartaCliente' onclick='girarCartas($c)'>";
+            echo "<div id='carta$c' data-gafas='$Ulleress[$imgSelecCliente]' data-pelo='$Cabells[$imgSelecCliente]' data-genero='$Sexes[$imgSelecCliente]' class='cartaCliente' onclick='girarCartas($c)'>";
                 echo "<div class='frontal BN' ><img src='imagenes/$imgCliente'></div>";
-                echo "<div class='trasera'><img src='imagenes/back_img.jpg'></div>";
+                echo "<div class='trasera BN'><img src='imagenes/back_img.jpg'></div>";
             echo "</div>";
             echo "</td>";
             array_push($repetidos, $imgSelecCliente);
