@@ -11,7 +11,64 @@ function girarCartas(c) {
     }
 }
 function preguntaServidor() {
-  return "ere tonto";
+  var idComboPelo = document.getElementById('pelo');
+  var idComboSexo = document.getElementById('sexo');
+  var idComboGafas = document.getElementById('gafas');
+  var Vgafas = document.getElementById("cartaServer").dataset.gafas;
+  var Vgenero =document.getElementById("cartaServer").dataset.genero;
+  var Vpelo =document.getElementById("cartaServer").dataset.pelo;
+  //return idComboGafas.value;
+  /*-------------------------------------------------------------*/
+  /*Combo box Gafas*/
+  if(idComboGafas.value=="gafas"){
+    if(Vgafas=="si"){
+      return "El servidor contesta :<br>¿Tiene Gafas? Si";
+    }else{
+      return "El servidor contesta :<br>¿Tiene Gafas? No";
+    }
+  }else if(idComboGafas.value=="no_gafas"){
+    if(Vgafas=="no"){
+      return "El servidor contesta :<br>¿No tiene Gafas? Si";
+    }else{
+      return "El servidor contesta :<br>¿No Tiene Gafas? No";
+    }
+  }
+  /*------------------------------------------------------------*/
+  /*Combo box Genero*/
+  if(idComboSexo.value=="hombre"){
+    if(Vgenero=="home"){
+      return "El servidor contesta :<br>¿Es hombre? Si";
+    }else{
+      return "El servidor contesta :<br>¿Es Hombre? No";
+    }
+  }else if (idComboSexo.value=="mujer") {
+    if(Vgenero=="dona"){
+      return "El servidor contesta :<br>¿Es Mujer? Si";
+    }else{
+      return "El servidor contesta :<br>¿Es Mujer? No";
+    }
+  }
+  /*------------------------------------------------------------*/
+  /*Combo box Pelo*/
+  if(idComboPelo.value=="rubio"){
+    if(Vpelo=="ros"){
+      return "El servidor contesta :<br>¿El color del Pelo es rubio? Si";
+    }else {
+      return "El servidor contesta :<br>¿El color del Pelo es rubio? No";
+    }
+  }else if (idComboPelo.value=="moreno") {
+    if (Vpelo=="castany") {
+      return "El servidor contesta :<br>¿El color del Pelo es moreno? Si";
+    } else {
+      return "El servidor contesta :<br>¿El color del Pelo es moreno? No";
+    }
+  }else if (idComboPelo.value=="negro") {
+    if (Vpelo=="negre") {
+      return "El servidor contesta :<br>¿El color del Pelo es negro? Si";
+    } else {
+      return "El servidor contesta :<br>¿El color del Pelo es negro? No";
+    }
+  }
 }
 function validar(){
   var idComboPelo = document.getElementById('pelo');
@@ -20,14 +77,17 @@ function validar(){
   var idValidacion = document.getElementById('validacion');
   if(idComboPelo.value != "null" && idComboSexo.value != "null" || idComboPelo.value != "null" && idComboGafas.value != "null" || idComboSexo.value != "null" && idComboGafas.value != "null"){
     idValidacion.innerHTML = "Error: estas haciendo 2 o más preguntas a la vez.";
+    idValidacion.style.color = "red";
     idComboPelo.value = "null";
     idComboSexo.value = "null";
     idComboGafas.value = "null";
   }else if(idComboPelo.value == "null" && idComboSexo.value == "null" && idComboGafas.value == "null"){
     idValidacion.innerHTML = "No estas haciendo ninguna pregunta.";
+    idValidacion.style.color = "red";
   }else{
     /*idValidacion.innerHTML = "cosas para el bot";*/
     idValidacion.innerHTML = preguntaServidor();
+    idValidacion.style.color = "green";
 
   }
   if(document.getElementById('easyButon').disabled == false){
@@ -37,4 +97,5 @@ function validar(){
 }
 function easyMode(){
   document.getElementById('easyButon').disabled = true;
+
 }

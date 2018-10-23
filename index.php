@@ -139,7 +139,7 @@
                 <p class='posiciones'>9</p>
                 <p class='posiciones'>10</p>
             </div>";
-      echo "<div id='cartaServer' class='cartaServer'>";
+      echo "<div id='cartaServer' data-gafas='$Ulleress[$imgSelecServer]' data-pelo='$Cabells[$imgSelecServer]' data-genero='$Sexes[$imgSelecServer]' class='cartaServer'>";
           echo "<div><img src='imagenes/$imgServer' hidden></div>";
           echo "<div><img src='imagenes/back_img.jpg'></div>";
       echo "</div>";
@@ -157,7 +157,7 @@
           $imgCliente = $imagenes[$imgSelecCliente];
           if(in_array($imgSelecCliente, $repetidos) === false){
             echo "<td>";
-            echo "<div id='carta$c' class='cartaCliente' onclick='girarCartas($c)'>";
+            echo "<div id='carta$c' data-gafas='$Ulleress[$imgSelecCliente]' data-pelo='$Cabells[$imgSelecCliente]' data-genero='$Sexes[$imgSelecCliente]' class='cartaCliente' onclick='girarCartas($c)'>";
                 echo "<div class='frontal' ><img src='imagenes/$imgCliente'></div>";
                 echo "<div class='trasera'><img src='imagenes/back_img.jpg'></div>";
             echo "</div>";
@@ -178,7 +178,7 @@
           <option value='null'></option>
           <option value='rubio'>El color del pelo es rubio?</option>
           <option value='moreno'>El color del pelo es Moreno?</option>
-          <optionvalue='negro'>El color del pelo es Negro?</option>
+          <option value='negro'>El color del pelo es Negro?</option>
           </select>
           <div><p class='respuestaServerPelo'></p></div>
       </div>";
