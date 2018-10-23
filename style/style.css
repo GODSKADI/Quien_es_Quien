@@ -161,10 +161,7 @@ color:#ffffff;
   border: 5px solid grey;
   text-align: center;
   width: auto;
-}
-.cartaServer{
-  margin-top: 1.5%;
-  margin-bottom: 1.5%;
+  height: 200px;
 }
 
 img{
@@ -177,11 +174,7 @@ img{
   border: 5px solid grey;
 }
 
-.easy{
-  color: #51ff0b;
-}
-
-.frontal:hover {
+.BN:hover {
   filter: grayscale(100%);
 }
 
@@ -207,11 +200,13 @@ img{
   /*width: 40%;*/
 }
 
+/*------------------------------------------------------------------*/
+/*Cartas Cliente*/
 .cartaCliente {
     width: 100%;
     height: 100%;
     margin-top: 5%;
-    margin-bottom: 100%;
+    margin-bottom: 75%;
     position: relative;
     -webkit-transition: -webkit-transform 1s;
     -moz-transition: -moz-transform 1s;
@@ -248,3 +243,50 @@ img{
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
 }
+
+/*------------------------------------------------------------------*/
+/*Cartas Servidor*/
+.cartaServer {
+    width: 100%;
+    height: 100%;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    position: relative;
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+}
+.cartaServer div {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.cartaServer .frontalServer {
+  background: none;
+}
+
+.cartaServer .traseraServer {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+.cartaServer.girada {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+/*-----------------------------------------------------*/
+/*Fuegos Artificiales*/

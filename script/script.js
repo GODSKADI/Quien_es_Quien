@@ -1,5 +1,6 @@
-//funcion que se le pasa un parametro (el num de id) para diferenciar id's
-//funcion que hace girar las cartas del cliente y se bloquean para no poder girarlas de nuevo
+//funcion que se le pasa un parametro (el num de id) para diferenciar id's.
+//funcion que hace girar las cartas del cliente y se bloquean para no poder girarlas de nuevo.
+//Ademas llama a la funcion coprovarCartasGiradas().
 $numCartasGiradas = 0;
 
 function girarCartas(c) {
@@ -9,10 +10,12 @@ function girarCartas(c) {
       idCarta.removeAttribute("onclick");
       $numCartasGiradas++
     }
+    coprovarCartasGiradas();
 }
 function preguntaServidor() {
   return "ere tonto";
 }
+//Funcion que valida que se hagan las preguntas con ciertas reglas.
 function validar(){
   var idComboPelo = document.getElementById('pelo');
   var idComboSexo = document.getElementById('sexo');
@@ -38,3 +41,21 @@ function validar(){
 function easyMode(){
   document.getElementById('easyButon').disabled = true;
 }
+
+//Funcion que comprueva que hay 11 cartas dadas la vuelta.
+function coprovarCartasGiradas(){
+  var cartasGiradas = document.getElementsByClassName('girada');
+  if(cartasGiradas.length == 11){
+    girarCartaServer();
+  }
+}
+
+//Funcion que gira la carta del servidor.
+function girarCartaServer(){
+  alert("tachan!!!");
+  var idCartaServer = document.getElementById("cartaS");
+  alert(idCartaServer);
+  idCartaServer.classList.toggle("girada");
+}
+//--------------------------------------------------------------------------------------
+//Fuegos Artificiales
