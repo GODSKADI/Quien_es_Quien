@@ -139,9 +139,9 @@
                 <p class='posiciones'>9</p>
                 <p class='posiciones'>10</p>
             </div>";
-      echo "<div id='cartaServer' data-gafas='$Ulleress[$imgSelecServer]' data-pelo='$Cabells[$imgSelecServer]' data-genero='$Sexes[$imgSelecServer]' class='cartaServer'>";
+      echo "<div id='cartaS' data-gafas='$Ulleress[$imgSelecServer]' data-pelo='$Cabells[$imgSelecServer]' data-genero='$Sexes[$imgSelecServer]' class='cartaServer'>";
           echo "<div class='frontalServer'><img src='imagenes/back_img.jpg'></div>";
-          echo "<div class='traseraServer'><img src='imagenes/$imgServer' hidden></div>";
+          echo "<div class='traseraServer'><img src='imagenes/$imgServer'></div>";
       echo "</div>";
     echo "</div>";
     //echo "<div class='contenedorGeneral'>";

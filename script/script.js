@@ -113,9 +113,7 @@ function coprovarCartasGiradas(){
 
 //Funcion que gira la carta del servidor.
 function girarCartaServer(){
-  alert("tachan!!!");
   var idCartaServer = document.getElementById("cartaS");
-  alert(idCartaServer);
   idCartaServer.classList.toggle("girada");
 }
 //--------------------------------------------------------------------------------------
