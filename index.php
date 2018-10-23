@@ -157,7 +157,7 @@
           $imgCliente = $imagenes[$imgSelecCliente];
           if(in_array($imgSelecCliente, $repetidos) === false){
             echo "<td>";
-            echo "<div id='carta$c' data-gafas='$Ulleress[$imgSelecCliente]' data-pelo='$Cabells[$imgSelecCliente]' data-genero='$Sexes[$imgSelecCliente]' class='cartaCliente' onclick='girarCartas($c)'>";
+            echo "<div id='carta$c' data-gafas='$Ulleress[$imgSelecCliente]' data-pelo='$Cabells[$imgSelecCliente]' data-genero='$Sexes[$imgSelecCliente]' class='cartaCliente chosenOne' onclick='girarCartas($c)'>";
                 echo "<div class='frontal BN' ><img src='imagenes/$imgCliente'></div>";
                 echo "<div class='trasera BN'><img src='imagenes/back_img.jpg'></div>";
             echo "</div>";

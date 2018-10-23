@@ -7,6 +7,7 @@ function girarCartas(c) {
     var idCarta = document.getElementById("carta"+c+"");
     if($numCartasGiradas != 11){
       idCarta.classList.toggle("girada");
+      idCarta.classList.remove("chosenOne");
       idCarta.removeAttribute("onclick");
       $numCartasGiradas++
     }
@@ -115,6 +116,15 @@ function coprovarCartasGiradas(){
 function girarCartaServer(){
   var idCartaServer = document.getElementById("cartaS");
   idCartaServer.classList.toggle("girada");
+  comprovarCartas();
+}
+
+function comprovarCartas(){
+  var srcCartaServer = document.getElementById('cartaS').childNodes[1].firstChild.src;
+  var CartaCliente = document.getElementsByClassName('chosenOne')[0];
+  var srcCartaCliente = CartaCliente.childNodes[0].firstChild.src;
+  alert(srcCartaServer);
+  alert(srcCartaCliente);
 }
 //--------------------------------------------------------------------------------------
 //Fuegos Artificiales
