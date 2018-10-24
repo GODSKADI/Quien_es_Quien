@@ -1,5 +1,16 @@
-"use strict";
+function fire() {
+	document.getElementById('canvas').style.visibility = "visible";
+}
+function abrirModal() {
+  var modal = document.getElementById('myModal');
+  //document.getElementById('resultado').innerHTML = resultado;
+    modal.style.display = "block";
+    /*if(resultado == "HAS PERDIDO"){
+      document.getElementById('guardarRecord').style.display = 'none';
+    }*/
+}
 
+/*Canvas fireworks*/
 let canvas, width, height, ctx;
 let fireworks = [];
 let particles = [];
@@ -8,6 +19,7 @@ function setup() {
 	canvas = document.getElementById("canvas");
 	setSize(canvas);
 	ctx = canvas.getContext("2d");
+
 	ctx.fillStyle = "#000000";
 	ctx.fillRect(0, 0, width, height);
 	fireworks.push(new Firework(Math.random()*(width-200)+100));
@@ -139,6 +151,8 @@ function onClick(e){
 
 function windowResized(){
 	setSize(canvas);
+	ctx.globalAlpha = 0.0;
+
 	ctx.fillStyle = "#000000";
 	ctx.fillRect(0, 0, width, height);
 }
