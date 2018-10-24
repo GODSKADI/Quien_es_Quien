@@ -1,3 +1,0 @@
-2018-10-19 19:11:42 | Error en la configuracion imagenes duplicadas
-2018-10-19 19:12:46 | Error en la configuracion Caracteristicas iguales
-2018-10-22 19:06:09 | Error en la configuracion Caracteristicas diferentes en el archivo log
