@@ -17,9 +17,9 @@ function preguntaServidor() {
   var idComboPelo = document.getElementById('pelo');
   var idComboSexo = document.getElementById('sexo');
   var idComboGafas = document.getElementById('gafas');
-  var Vgafas = document.getElementById("cartaServer").dataset.gafas;
-  var Vgenero =document.getElementById("cartaServer").dataset.genero;
-  var Vpelo =document.getElementById("cartaServer").dataset.pelo;
+  var Vgafas = document.getElementById("cartaS").dataset.gafas;
+  var Vgenero =document.getElementById("cartaS").dataset.genero;
+  var Vpelo =document.getElementById("cartaS").dataset.pelo;
   //return idComboGafas.value;
   /*-------------------------------------------------------------*/
   /*Combo box Gafas*/
@@ -91,7 +91,7 @@ function validar(){
   }else{
     /*idValidacion.innerHTML = "cosas para el bot";*/
     idValidacion.innerHTML = preguntaServidor();
-    idValidacion.style.color = "green";
+    idValidacion.style.color = " #00ff00";
 
   }
   if(document.getElementById('easyButon').disabled == false){
