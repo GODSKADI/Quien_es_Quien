@@ -91,7 +91,7 @@ function validar(){
   }else{
     /*idValidacion.innerHTML = "cosas para el bot";*/
     idValidacion.innerHTML = preguntaServidor();
-    idValidacion.style.color = " #00ff00";
+    idValidacion.style.color = " #00FF00";
 
   }
   if(document.getElementById('easyButon').disabled == false){
