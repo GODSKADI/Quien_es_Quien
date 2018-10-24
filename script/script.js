@@ -142,6 +142,10 @@ function abrirModal(resultado) {
     }
 }
 
+function abrirNombre(){
+  document.getElementById('guardarNombre').style.visibility = "visible";
+}
+
 function cerrarModal() {
   var modal = document.getElementById('myModal');
   modal.style.display = "none";
