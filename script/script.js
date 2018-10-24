@@ -7,6 +7,7 @@ function girarCartas(c) {
     var idCarta = document.getElementById("carta"+c+"");
     if($numCartasGiradas != 11){
       idCarta.classList.toggle("girada");
+      idCarta.classList.remove("chosenOne");
       idCarta.removeAttribute("onclick");
       $numCartasGiradas++
     }
@@ -17,8 +18,8 @@ function preguntaServidor() {
   var idComboSexo = document.getElementById('sexo');
   var idComboGafas = document.getElementById('gafas');
   var Vgafas = document.getElementById("cartaS").dataset.gafas;
-  var Vgenero = document.getElementById("cartaS").dataset.genero;
-  var Vpelo = document.getElementById("cartaS").dataset.pelo;
+  var Vgenero =document.getElementById("cartaS").dataset.genero;
+  var Vpelo =document.getElementById("cartaS").dataset.pelo;
   //return idComboGafas.value;
   /*-------------------------------------------------------------*/
   /*Combo box Gafas*/
@@ -90,7 +91,7 @@ function validar(){
   }else{
     /*idValidacion.innerHTML = "cosas para el bot";*/
     idValidacion.innerHTML = preguntaServidor();
-    idValidacion.style.color = "#00FF00";
+    idValidacion.style.color = " #00FF00";
 
   }
   if(document.getElementById('easyButon').disabled == false){
@@ -115,6 +116,15 @@ function coprovarCartasGiradas(){
 function girarCartaServer(){
   var idCartaServer = document.getElementById("cartaS");
   idCartaServer.classList.toggle("girada");
+  comprovarCartas();
+}
+
+function comprovarCartas(){
+  var srcCartaServer = document.getElementById('cartaS').childNodes[1].firstChild.src;
+  var CartaCliente = document.getElementsByClassName('chosenOne')[0];
+  var srcCartaCliente = CartaCliente.childNodes[0].firstChild.src;
+  alert(srcCartaServer);
+  alert(srcCartaCliente);
 }
 //--------------------------------------------------------------------------------------
 //Fuegos Artificiales
