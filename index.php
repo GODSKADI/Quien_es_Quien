@@ -201,6 +201,19 @@
       echo "<input type='button' value='Preguntar' onclick='validar()'></input>";
       echo "<input id='easyButon' class='easy' type='button' value='EASY' onclick='easyMode()' ></input>";
       echo "</div>";
+
+      //Modal
+      echo "<div id='myModal' class='modal'>
+          <div class='modal-content'>
+            <span class='close' onclick='cerrarModal()'>&times;</span>
+            <h2 id='resultado'></h2>
+            <div id='guardarRecord'>
+              <h3>Quieres guardar tu record?</h3>
+              <input type='button' value='Si'></input>
+              <input type='button' value='No'></input>
+            </div>
+          </div>
+        </div> ";
      ?>
   </body>
 </html>

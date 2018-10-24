@@ -123,8 +123,33 @@ function comprovarCartas(){
   var srcCartaServer = document.getElementById('cartaS').childNodes[1].firstChild.src;
   var CartaCliente = document.getElementsByClassName('chosenOne')[0];
   var srcCartaCliente = CartaCliente.childNodes[0].firstChild.src;
-  alert(srcCartaServer);
-  alert(srcCartaCliente);
+  if(srcCartaServer == srcCartaCliente){
+    abrirModal("HAS GANADO");
+  }else{
+    abrirModal("HAS PERDIDO");
+  }
 }
+
 //--------------------------------------------------------------------------------------
-//Fuegos Artificiales
+//Modal
+
+function abrirModal(resultado) {
+  var modal = document.getElementById('myModal');
+  document.getElementById('resultado').innerHTML = resultado;
+    modal.style.display = "block";
+    if(resultado == "HAS PERDIDO"){
+      document.getElementById('guardarRecord').style.display = 'none';
+    }
+}
+
+function cerrarModal() {
+  var modal = document.getElementById('myModal');
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  var modal = document.getElementById('myModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
