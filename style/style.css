@@ -130,9 +130,6 @@ color:#ffffff;
 }
 
 /*---------------------------*/
-body{
-  color: white;
-}
 .blink_me {
   width: 10%;
   height: 10%;
@@ -201,6 +198,7 @@ img{
   height: auto;
   float:right;
   width: 37%;
+  color: white;
   /*trabajar en pequeño*/
   /*width: 40%;*/
 }
