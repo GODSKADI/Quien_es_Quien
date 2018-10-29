@@ -13,8 +13,6 @@
       </div>
     </head>
     <?php
-
-
     //-------------------------------------------------------------------------------------//
     //config
     $config = "config.txt";
@@ -56,6 +54,7 @@
     $Ulleress = array();
     $Cabells = array();
     $Sexes = array();
+    $imgAtributo  = array();
     $fila;
     $filas = file($imag);
     foreach ($filas as $key => $value) {
@@ -64,7 +63,12 @@
       array_push($Ulleress,$fila[2]);//Ulleres
       array_push($Cabells,$fila[4]);//cabell
       array_push($Sexes,$fila[6]);//Sexe
+      $imgAtributo[] =  array($fila[0],$fila[2],$fila[4],$fila[6]);
     }
+    var_dump($imgAtributo);
+    shuffle($imgAtributo);
+    echo "<br>";
+    var_dump($imgAtributo);
     //Primer error de la imagenes
     for ($z=0; $z <12 ; $z++) {
       //echo "<p>-$imagenes[$z]-</p>";
@@ -171,7 +175,7 @@
       }
       echo "</table></div>";
       echo "<div class='contenedorCombo'>";
-      echo "<h2 id='validacion'></h2>";
+      echo "<h2 id='validacion'></h2><img id='iconoVerde' class='blink_me' style='visibility: hidden' src='imagenes/greenIcon.png'><img id='iconoRojo' class='blink_me' style='visibility: hidden' src='imagenes/redIcon.png'>";
       echo "<h2>Preguntas</h2>";
       echo "<div class='combo1'>
           <select id='pelo'>
@@ -200,6 +204,7 @@
       </div>";
       echo "<input type='button' value='Preguntar' onclick='validar()'></input>";
       echo "<input id='easyButon' class='easy' type='button' value='EASY' onclick='easyMode()' ></input>";
+      echo "<div class='contador'><p>NºPreguntes:</p><p id='contadorPreguntas'>&#8224;</p></div>";
       echo "</div>";
 
       //Modal

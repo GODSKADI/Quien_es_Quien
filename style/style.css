@@ -130,7 +130,26 @@ color:#ffffff;
 }
 
 /*---------------------------*/
-
+body{
+  color: white;
+}
+.blink_me {
+  width: 10%;
+  height: 10%;
+  margin-top: 2%;
+  margin-left: 2%;
+  background: none;
+  border: none;
+  animation: blink 1.5s linear infinite!important;
+}
+.contador{
+  margin-left: 5%;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 .posiciones{
   font-size: 0.80em;
   color: white;
@@ -153,9 +172,7 @@ color:#ffffff;
   width: 40%;
   /*border: 1px solid grey;*/
 }
-.contenedorCombo{
-  color: white;
-}
+
 .contenedorCartaServer{
   margin-top: 1%;
   border: 5px solid grey;
@@ -182,6 +199,10 @@ img{
   margin-top: 1%;
   border: 5px solid grey;
   height: auto;
+  float:right;
+  width: 37%;
+  /*trabajar en pequeño*/
+  /*width: 40%;*/
 }
 .contenedorCartasCliente{
   margin-top: 1%;
@@ -193,13 +214,6 @@ img{
   /*trabajar en pequeño*/
   /*width: 50%;*/
 }
-.contenedorCombo{
-  float:right;
-  width: 37%;
-  /*trabajar en pequeño*/
-  /*width: 40%;*/
-}
-
 /*------------------------------------------------------------------*/
 /*Cartas Cliente*/
 .cartaCliente {

@@ -2,7 +2,7 @@
 //funcion que hace girar las cartas del cliente y se bloquean para no poder girarlas de nuevo.
 //Ademas llama a la funcion coprovarCartasGiradas().
 $numCartasGiradas = 0;
-
+var contadorPregunta = 0;
 function girarCartas(c) {
     var idCarta = document.getElementById("carta"+c+"");
     if($numCartasGiradas != 11){
@@ -25,51 +25,80 @@ function preguntaServidor() {
   /*Combo box Gafas*/
   if(idComboGafas.value=="gafas"){
     if(Vgafas=="si"){
-      return "El servidor contesta :<br>¿Tiene Gafas? Si";
+
+      document.getElementById('iconoVerde').style.visibility = "visible";
+return "El servidor contesta :<br>¿Tiene Gafas? Si";
     }else{
+
+      document.getElementById('iconoRojo').style.visibility = "visible";
       return "El servidor contesta :<br>¿Tiene Gafas? No";
+
     }
   }else if(idComboGafas.value=="no_gafas"){
     if(Vgafas=="no"){
-      return "El servidor contesta :<br>¿No tiene Gafas? Si";
+
+      document.getElementById('iconoVerde').style.visibility = "visible";
+return "El servidor contesta :<br>¿No tiene Gafas? Si";
     }else{
-      return "El servidor contesta :<br>¿No Tiene Gafas? No";
+
+      document.getElementById('iconoRojo').style.visibility = "visible";
+return "El servidor contesta :<br>¿No Tiene Gafas? No";
     }
   }
   /*------------------------------------------------------------*/
   /*Combo box Genero*/
   if(idComboSexo.value=="hombre"){
     if(Vgenero=="home"){
-      return "El servidor contesta :<br>¿Es hombre? Si";
+
+      document.getElementById('iconoVerde').style.visibility = "visible";
+return "El servidor contesta :<br>¿Es hombre? Si";
     }else{
-      return "El servidor contesta :<br>¿Es Hombre? No";
+
+      document.getElementById('iconoRojo').style.visibility = "visible";
+return "El servidor contesta :<br>¿Es Hombre? No";
     }
   }else if (idComboSexo.value=="mujer") {
     if(Vgenero=="dona"){
-      return "El servidor contesta :<br>¿Es Mujer? Si";
+
+      document.getElementById('iconoVerde').style.visibility = "visible";
+  return "El servidor contesta :<br>¿Es Mujer? Si";
     }else{
-      return "El servidor contesta :<br>¿Es Mujer? No";
+
+      document.getElementById('iconoRojo').style.visibility = "visible";
+return "El servidor contesta :<br>¿Es Mujer? No";
     }
   }
   /*------------------------------------------------------------*/
   /*Combo box Pelo*/
   if(idComboPelo.value=="rubio"){
     if(Vpelo=="ros"){
+      document.getElementById('iconoVerde').style.visibility = "visible";
       return "El servidor contesta :<br>¿El color del Pelo es rubio? Si";
+
     }else {
+      document.getElementById('iconoRojo').style.visibility = "visible";
       return "El servidor contesta :<br>¿El color del Pelo es rubio? No";
+
     }
   }else if (idComboPelo.value=="moreno") {
     if (Vpelo=="castany") {
+        document.getElementById('iconoVerde').style.visibility = "visible";
       return "El servidor contesta :<br>¿El color del Pelo es moreno? Si";
+
     } else {
+      document.getElementById('iconoRojo').style.visibility = "visible";
       return "El servidor contesta :<br>¿El color del Pelo es moreno? No";
+
     }
   }else if (idComboPelo.value=="negro") {
     if (Vpelo=="negre") {
+      document.getElementById('iconoVerde').style.visibility = "visible";
       return "El servidor contesta :<br>¿El color del Pelo es negro? Si";
+
     } else {
+      document.getElementById('iconoRojo').style.visibility = "visible";
       return "El servidor contesta :<br>¿El color del Pelo es negro? No";
+
     }
   }
 }
@@ -79,6 +108,8 @@ function validar(){
   var idComboSexo = document.getElementById('sexo');
   var idComboGafas = document.getElementById('gafas');
   var idValidacion = document.getElementById('validacion');
+  document.getElementById('iconoRojo').style.visibility = "hidden";
+  document.getElementById('iconoVerde').style.visibility = "hidden";
   if(idComboPelo.value != "null" && idComboSexo.value != "null" || idComboPelo.value != "null" && idComboGafas.value != "null" || idComboSexo.value != "null" && idComboGafas.value != "null"){
     idValidacion.innerHTML = "Error: estas haciendo 2 o más preguntas a la vez.";
     idValidacion.style.color = "red";
@@ -91,7 +122,10 @@ function validar(){
   }else{
     /*idValidacion.innerHTML = "cosas para el bot";*/
     idValidacion.innerHTML = preguntaServidor();
-    idValidacion.style.color = " #00FF00";
+    idValidacion.style.color = "white";
+    contadorPregunta++;
+    document.getElementById('contadorPreguntas').innerHTML = contadorPregunta;
+    //alert(contadorPregunta);
 
   }
   if(document.getElementById('easyButon').disabled == false){
