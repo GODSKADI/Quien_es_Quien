@@ -13,6 +13,10 @@
       </div>
     </head>
     <?php
+    //--------------------------------------------------------------------------------------
+    //Iniciar la Session
+    session_start();
+
     //-------------------------------------------------------------------------------------//
     //config
     $config = "config.txt";
@@ -54,7 +58,7 @@
     $Ulleress = array();
     $Cabells = array();
     $Sexes = array();
-    $imgAtributo  = array();
+    $imgAtributo = array();
     $fila;
     $filas = file($imag);
     foreach ($filas as $key => $value) {
@@ -63,12 +67,8 @@
       array_push($Ulleress,$fila[2]);//Ulleres
       array_push($Cabells,$fila[4]);//cabell
       array_push($Sexes,$fila[6]);//Sexe
-      $imgAtributo[] =  array($fila[0],$fila[2],$fila[4],$fila[6]);
+      $imgAtributo[] = array($fila[0], $fila[2], $fila[4], $fila[6]);
     }
-    var_dump($imgAtributo);
-    shuffle($imgAtributo);
-    echo "<br>";
-    var_dump($imgAtributo);
     //Primer error de la imagenes
     for ($z=0; $z <12 ; $z++) {
       //echo "<p>-$imagenes[$z]-</p>";
@@ -122,11 +122,17 @@
         exit ("Error consulte el archivo log.txt para mas informacion");
       }
     }
+
     //--------------------------------------------------------------------//
     //Random del Array de imagenes para la carta del servidor
     $imgSelecServer = array_rand($imagenes);
     $imgServer=$imagenes[$imgSelecServer];
-    $repetidos = [];
+    //--------------------------------------------------------------------------------
+    //Guardar carta servidor en la Session
+    if (!isset($_SESSION['imgServerSession'])) {
+      $_SESSION['imgServerSession'] = $imgServer;
+    }
+    //---------------------------------------------------------------------------------
     $c = 0;
     echo "<div class='contenedorCartaServer'>";
       echo "<div class='ranking1'><p class='ranking'><a>Ranking</a></p>
@@ -145,31 +151,30 @@
             </div>";
       echo "<div id='cartaS' data-gafas='$Ulleress[$imgSelecServer]' data-pelo='$Cabells[$imgSelecServer]' data-genero='$Sexes[$imgSelecServer]' class='cartaServer'>";
           echo "<div class='frontalServer'><img src='imagenes/back_img.jpg'></div>";
-          echo "<div class='traseraServer'><img src='imagenes/$imgServer'></div>";
+          echo "<div class='traseraServer'><img src='imagenes/".$_SESSION["imgServerSession"]."'></div>";
       echo "</div>";
     echo "</div>";
-    //echo "<div class='contenedorGeneral'>";
     //Contenedor con tabla para las cartas del Cliente
     echo "<div class ='contenedorCartasCliente' class= 'cartasCliente'\n>";
     echo "<table class='table' id='tablacartas'>\n";
+    //Shuffle del Array de $imgAtributo sin repeticiones
+    //$c para diferenciar id's y que no se repitan
+      shuffle($imgAtributo);
+      if (!isset($_SESSION['imgClienteSession'])) {
+          $_SESSION['imgClienteSession'] = $imgAtributo;
+        }
       for ($i=0; $i < 4; $i++) {
         echo "<tr>";
-        for ($j=0; $j < 3;) {
-          //Random del Array de imagenes sin repeticiones
-          //$c para diferenciar id's y que no se repitan
-          $imgSelecCliente = array_rand($imagenes);
-          $imgCliente = $imagenes[$imgSelecCliente];
-          if(in_array($imgSelecCliente, $repetidos) === false){
-            echo "<td>";
-            echo "<div id='carta$c' data-gafas='$Ulleress[$imgSelecCliente]' data-pelo='$Cabells[$imgSelecCliente]' data-genero='$Sexes[$imgSelecCliente]' class='cartaCliente chosenOne' onclick='girarCartas($c)'>";
-                echo "<div class='frontal BN' ><img src='imagenes/$imgCliente'></div>";
-                echo "<div class='trasera BN'><img src='imagenes/back_img.jpg'></div>";
+        for ($j=0; $j < 3;  $j++) {
+
+          $auxiliarCooky = $_SESSION['imgClienteSession'];
+          echo "<td>";
+            echo "<div id='carta$c' data-gafas='".$auxiliarCooky[$c][1]."' data-pelo='".$auxiliarCooky[$c][2]."' data-genero='".$auxiliarCooky[$c][3]."' class='cartaCliente chosenOne' onclick='girarCartas($c)'>";
+              echo "<div class='frontal BN' ><img src='imagenes/".$_SESSION['imgClienteSession'][$c][0]."'></div>";
+              echo "<div class='trasera BN'><img src='imagenes/back_img.jpg'></div>";
             echo "</div>";
-            echo "</td>";
-            array_push($repetidos, $imgSelecCliente);
-            $j++;
-            $c++;
-          }
+          echo "</td>";
+          $c++;
         }
         echo "</tr>";
       }
