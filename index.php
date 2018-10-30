@@ -248,6 +248,9 @@
           fwrite($fp, "$nombre" . PHP_EOL);
           fclose($fp);
         }
+        if($_POST["Final"]!=null){
+          alert("fin del juego");
+        }
      ?>
   </body>
 </html>
