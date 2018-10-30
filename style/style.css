@@ -179,8 +179,8 @@ color:#ffffff;
 }
 
 img{
-  width: 150px;
-  height: 150px;
+  width: 60%;
+  /*height: 150px;*/
   background-color: white;
   /*trabajar en pequeño*/
   /*width: 15px;
@@ -274,6 +274,9 @@ img{
     transform-style: preserve-3d;
     -webkit-transform-origin: 50% 50%;
 }
+.frontalServer>img, .traseraServer>img{
+  width: 20%!important;
+}
 .cartaServer div {
     height: 100%;
     width: 100%;
@@ -334,4 +337,24 @@ img{
    color: black;
    text-decoration: none;
    cursor: pointer;
+}
+
+/*******************************************************************************************************************/
+/*small*/
+@media only screen and (max-width: 412px){
+
+  #container{
+    width:250px;
+    margin:auto;
+  }
+  .titulo{
+    text-align:center;
+    font-size:1em;
+    margin:20px 0 20px 0;
+  }
+  .contenedor{
+    display: flex;
+  flex-wrap: wrap;
+  }
+
 }

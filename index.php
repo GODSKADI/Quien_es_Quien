@@ -164,6 +164,7 @@
           echo "<div class='traseraServer'><img src='imagenes/".$_SESSION["imgServerSession"]."'></div>";
       echo "</div>";
     echo "</div>";
+    echo "<div class='contenido'>";
     //Contenedor con tabla para las cartas del Cliente
     echo "<div class ='contenedorCartasCliente' class= 'cartasCliente'\n>";
     echo "<table class='table' id='tablacartas'>\n";
@@ -220,6 +221,7 @@
       echo "<input type='button' value='Preguntar' onclick='validar()'></input>";
       echo "<input id='easyButon' class='easy' type='button' value='EASY' onclick='easyMode()' ></input>";
       echo "<div class='contador'><p>NºPreguntes:</p><p id='contadorPreguntas'>&#8224;</p></div>";
+      echo "</div>";
       echo "</div>";
       //Modal
 

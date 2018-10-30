@@ -3,12 +3,14 @@
 //Ademas llama a la funcion coprovarCartasGiradas().
 $numCartasGiradas = 0;
 var contadorPregunta = 0;
+var sonidoGirarCarta = new Audio('sonidos/giro.mp3');
 function girarCartas(c) {
     var idCarta = document.getElementById("carta"+c+"");
     if($numCartasGiradas != 11){
       idCarta.classList.toggle("girada");
       idCarta.classList.remove("chosenOne");
       idCarta.removeAttribute("onclick");
+      sonidoGirarCarta.play();
       $numCartasGiradas++
     }
     coprovarCartasGiradas();
@@ -152,15 +154,18 @@ function girarCartaServer(){
   idCartaServer.classList.toggle("girada");
   comprovarCartas();
 }
-
+//var SonidoGanar = new Audio();
+//var SonidoPerder = new Audio();
 function comprovarCartas(){
   var srcCartaServer = document.getElementById('cartaS').childNodes[1].firstChild.src;
   var CartaCliente = document.getElementsByClassName('chosenOne')[0];
   var srcCartaCliente = CartaCliente.childNodes[0].firstChild.src;
   if(srcCartaServer == srcCartaCliente){
     abrirModal("HAS GANADO");
+    //SonidoGanar.play();
   }else{
     abrirModal("HAS PERDIDO");
+    //SonidoPerder.play();
   }
 }
 
