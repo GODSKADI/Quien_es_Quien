@@ -225,32 +225,23 @@
 
       echo "<div id='myModal' class='modal'>
           <div class='modal-content'>
-            <span class='close' onclick='cerrarModal()'>&times;</span>
+            <a href='logout.php'><span class='close' onclick='cerrarModal()'>&times;</span></a>
             <h1 id='resultado'></h1>
+            <a id='reiniciarPartida' href='logout.php' style='visibility: hidden'><input type='button' value='Reiniciar'></input></a>
             <div id='guardarRecord'>
               <h3>Quieres guardar tu record?</h3>
               <input type='button' value='Si' onclick='abrirNombre()'></input>
-              <input type='button' value='No' onclick='cerrarModal()'></input>
+              <a href='logout.php'><input type='button' value='No' onclick='cerrarModal()'></input></a>
               <div id='guardarNombre' style='visibility: hidden'>
                 <h3>Introduce tu Nombre:</h3>
-                <form action='index.php' method='post'>
-                <input type='text' name='nombre'></input>
-                <input type='submit' value='Guardar' onclick='guardarNombre()'></input>";
-                //session_destroy();
-          echo "</form>
+                <form  action='logout.php' method='post'>
+                  <input id='contadorPreguntas' type='text' name='nombre'></input>
+                  <a href='logout.php'><input type='submit' value='Guardar'></input></a>
+                </form>
               </div>
             </div>
           </div>
-        </div> ";
-        if($_POST["nombre"] != null){
-          $nombre = $_POST["nombre"];
-          $fp = fopen("records.txt","a");
-          fwrite($fp, "$nombre" . PHP_EOL);
-          fclose($fp);
-        }
-        if($_POST["Final"]!=null){
-          alert("fin del juego");
-        }
+        </div>";
      ?>
   </body>
 </html>
