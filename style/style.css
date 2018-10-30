@@ -286,7 +286,6 @@ img{
 .cartaServer .frontalServer {
   background: none;
 }
-
 .cartaServer .traseraServer {
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );

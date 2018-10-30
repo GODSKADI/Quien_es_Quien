@@ -228,7 +228,7 @@
                 <form action='index.php' method='post'>
                 <input type='text' name='nombre'></input>
                 <input type='submit' value='Guardar' onclick='guardarNombre()'></input>";
-                session_destroy();
+                //session_destroy();
           echo "</form>
               </div>
             </div>
@@ -239,6 +239,9 @@
           $fp = fopen("records.txt","a");
           fwrite($fp, "$nombre" . PHP_EOL);
           fclose($fp);
+        }
+        if($_POST["Final"]!=null){
+          alert("fin del juego");
         }
      ?>
   </body>
