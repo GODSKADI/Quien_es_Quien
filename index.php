@@ -134,21 +134,31 @@
     }
     //---------------------------------------------------------------------------------
     $c = 0;
+
+
     echo "<div class='contenedorCartaServer'>";
-      echo "<div class='ranking1'><p class='ranking'><a>Ranking</a></p>
-                <p class='posiciones'>1</p>
-                <p class='posiciones'>2</p>
-                <p class='posiciones'>3</p>
-                <p class='posiciones'>4</p>
-                <p class='posiciones'>5</p>
-            </div>";
-      echo "<div class='ranking2'><p class='ranking'><a>Ranking</a></p>
-                <p class='posiciones'>6</p>
-                <p class='posiciones'>7</p>
-                <p class='posiciones'>8</p>
-                <p class='posiciones'>9</p>
-                <p class='posiciones'>10</p>
-            </div>";
+      echo "<div class='ranking1'><p class='ranking'><a>Ranking</a></p>";
+      $archivo = fopen ("records.txt","r");
+      $numLineas = 0;
+      while (!feof($archivo)) {
+        $linea = fgets($archivo);
+        if(++$numLineas > 0 && $numLineas < 6){
+          echo "<p class='posiciones'>$linea</p>";
+        }
+      }
+      fclose ($archivo);
+      echo "</div>";
+      echo "<div class='ranking2'><p class='ranking'><a>Ranking</a></p>";
+      $archivo = fopen ("records.txt","r");
+      $numLineas = 0;
+      while (!feof($archivo)) {
+        $linea = fgets($archivo);
+        if(++$numLineas > 5 && $numLineas < 11){
+          echo "<p class='posiciones'>$linea</p>";
+        }
+      }
+      fclose ($archivo);
+      echo "</div>";
       echo "<div id='cartaS' data-gafas='$Ulleress[$imgSelecServer]' data-pelo='$Cabells[$imgSelecServer]' data-genero='$Sexes[$imgSelecServer]' class='cartaServer'>";
           echo "<div class='frontalServer'><img src='imagenes/back_img.jpg'></div>";
           echo "<div class='traseraServer'><img src='imagenes/".$_SESSION["imgServerSession"]."'></div>";
@@ -211,8 +221,6 @@
       echo "<input id='easyButon' class='easy' type='button' value='EASY' onclick='easyMode()' ></input>";
       echo "<div class='contador'><p>NºPreguntes:</p><p id='contadorPreguntas'>&#8224;</p></div>";
       echo "</div>";
-      ?>
-      <?php
       //Modal
 
       echo "<div id='myModal' class='modal'>
@@ -228,7 +236,7 @@
                 <form action='index.php' method='post'>
                 <input type='text' name='nombre'></input>
                 <input type='submit' value='Guardar' onclick='guardarNombre()'></input>";
-                session_destroy();
+                //session_destroy();
           echo "</form>
               </div>
             </div>
