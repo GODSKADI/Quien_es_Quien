@@ -178,6 +178,7 @@ function abrirModal(resultado) {
     modal.style.display = "block";
     if(resultado == "HAS PERDIDO"){
       document.getElementById('guardarRecord').style.display = 'none';
+      document.getElementById('reiniciarPartida').style.visibility = "visible";
     }
 }
 
@@ -189,10 +190,11 @@ function cerrarModal() {
   var modal = document.getElementById('myModal');
   modal.style.display = "none";
 }
-
+/*
 window.onclick = function(event) {
   var modal = document.getElementById('myModal');
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+*/
