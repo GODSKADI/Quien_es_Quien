@@ -211,8 +211,10 @@
       echo "<input id='easyButon' class='easy' type='button' value='EASY' onclick='easyMode()' ></input>";
       echo "<div class='contador'><p>NºPreguntes:</p><p id='contadorPreguntas'>&#8224;</p></div>";
       echo "</div>";
-
+      ?>
+      <?php
       //Modal
+
       echo "<div id='myModal' class='modal'>
           <div class='modal-content'>
             <span class='close' onclick='cerrarModal()'>&times;</span>
@@ -223,12 +225,21 @@
               <input type='button' value='No' onclick='cerrarModal()'></input>
               <div id='guardarNombre' style='visibility: hidden'>
                 <h3>Introduce tu Nombre:</h3>
-                <input type='text'></input>
-                <input type='button' value='Guardar'</input>
+                <form action='index.php' method='post'>
+                <input type='text' name='nombre'></input>
+                <input type='submit' value='Guardar' onclick='guardarNombre()'></input>";
+                session_destroy();
+          echo "</form>
               </div>
             </div>
           </div>
         </div> ";
+        if($_POST["nombre"] != null){
+          $nombre = $_POST["nombre"];
+          $fp = fopen("records.txt","a");
+          fwrite($fp, "$nombre" . PHP_EOL);
+          fclose($fp);
+        }
      ?>
   </body>
 </html>
