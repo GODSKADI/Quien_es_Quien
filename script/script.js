@@ -4,6 +4,7 @@
 
 var contadorPreguntas = 0;
 var contPregsSinReinicio = 0;
+
 var numCartasGiradas = 0;
 var contadorPregunta = 0;
 var sonidoGirarCarta = new Audio('sonidos/giro.mp3');
@@ -30,6 +31,9 @@ function preguntaServidor() {
   //return idComboGafas.value;
   /*-------------------------------------------------------------*/
   /*Combo box Gafas*/
+  if(contPregsSinReinicio > 2){
+    contadorPreguntas = 0;
+  }
   if(contadorPreguntas == 0){
     if(idComboGafas.value=="gafas"){
       if(Vgafas=="si"){
@@ -124,8 +128,9 @@ function preguntaServidor() {
         return "El servidor contesta :<br>¿El color del Pelo es negro? No";
       }
     }
-  }else{
+  }else if(contPregsSinReinicio < 2){
       contadorPreguntas = 0;
+      contPregsSinReinicio++;
       return "Seguro que quieres realizar otra pregunta sin girar ninguna carta?";
   }
 }

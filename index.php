@@ -131,6 +131,7 @@
     //Guardar carta servidor en la Session
     if (!isset($_SESSION['imgServerSession'])) {
       $_SESSION['imgServerSession'] = $imgServer;
+
     }
     //---------------------------------------------------------------------------------
     $c = 0;
