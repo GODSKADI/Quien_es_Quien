@@ -357,14 +357,14 @@ img{
     border: 5px solid grey;
     height: auto;
     float:left;
-    width: 99%;
+    width: 97%;
     background-image: repeating-linear-gradient(#900C3F,   #ffb8d9  10%, #900C3F 20%);
   }
   .contenedorCombo{
     margin-top: 1%;
     border: 5px solid grey;
     height: auto;
-    width: 99%;
+    width: 97%;
     color: white;
     float: left;
     /*trabajar en pequeño*/
