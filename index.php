@@ -227,18 +227,18 @@
 
       echo "<div id='myModal' class='modal'>
           <div class='modal-content'>
-            <a href='logout.php'><span class='close' onclick='cerrarModal()'>&times;</span></a>
+            <a href='killSession.php'><span class='close' onclick='cerrarModal()'>&times;</span></a>
             <h1 id='resultado'></h1>
-            <a id='reiniciarPartida' href='logout.php' style='visibility: hidden'><input type='button' value='Reiniciar'></input></a>
+            <a id='reiniciarPartida' href='killSession.php' style='visibility: hidden'><input type='button' value='Reiniciar'></input></a>
             <div id='guardarRecord'>
               <h3>Quieres guardar tu record?</h3>
               <input type='button' value='Si' onclick='abrirNombre()'></input>
-              <a href='logout.php'><input type='button' value='No' onclick='cerrarModal()'></input></a>
+              <a href='killSession.php'><input type='button' value='No' onclick='cerrarModal()'></input></a>
               <div id='guardarNombre' style='visibility: hidden'>
                 <h3>Introduce tu Nombre:</h3>
-                <form  action='logout.php' method='post'>
+                <form  action='killSession.php' method='post'>
                   <input id='contadorPreguntas' type='text' name='nombre'></input>
-                  <a href='logout.php'><input type='submit' value='Guardar'></input></a>
+                  <a href='killSession.php'><input type='submit' value='Guardar'></input></a>
                 </form>
               </div>
             </div>
