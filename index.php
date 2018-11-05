@@ -135,7 +135,6 @@
     //---------------------------------------------------------------------------------
     $c = 0;
 
-
     echo "<div class='contenedorCartaServer'>";
       echo "<div class='ranking1'><p class='ranking'><a>Ranking</a></p>";
       $archivo = fopen ("records.txt","r");
@@ -225,8 +224,8 @@
       echo "<div class='contador'><p>NºPreguntes:</p><p id='contadorPreguntas'>&#8224;</p></div>";
       echo "</div>";
       echo "</div>";
+      //--------------------------------------------------------------------------------------------------
       //Modal
-
       echo "<div id='myModal' class='modal'>
           <div class='modal-content'>
             <a href='killSession.php'><span class='close' onclick='cerrarModal()'>&times;</span></a>
