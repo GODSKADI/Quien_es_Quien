@@ -341,7 +341,7 @@ img{
 /*small*/
 @media only screen and (max-width: 824px){
   body{
-    font-size:1em;
+    font-size:1.2em;
   }
   #container{
     width:250px;
@@ -349,7 +349,7 @@ img{
   }
   .titulo{
     text-align:center;
-    font-size:1em;
+    font-size:1.5em;
     margin:20px 0 20px 0;
   }
   .contenedorCartasCliente{
