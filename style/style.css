@@ -199,8 +199,6 @@ img{
   float:right;
   width: 37%;
   color: white;
-  /*trabajar en pequeño*/
-  /*width: 40%;*/
 }
 .contenedorCartasCliente{
   margin-top: 1%;
@@ -341,8 +339,10 @@ img{
 
 /*******************************************************************************************************************/
 /*small*/
-@media only screen and (max-width: 412px){
-
+@media only screen and (max-width: 824px){
+  body{
+    font-size:1em;
+  }
   #container{
     width:250px;
     margin:auto;
@@ -352,9 +352,22 @@ img{
     font-size:1em;
     margin:20px 0 20px 0;
   }
-  .contenedor{
-    display: flex;
-  flex-wrap: wrap;
+  .contenedorCartasCliente{
+    /*margin-top: 1%;*/
+    border: 5px solid grey;
+    height: auto;
+    float:left;
+    width: 99%;
+    background-image: repeating-linear-gradient(#900C3F,   #ffb8d9  10%, #900C3F 20%);
   }
-
+  .contenedorCombo{
+    margin-top: 1%;
+    border: 5px solid grey;
+    height: auto;
+    width: 99%;
+    color: white;
+    float: left;
+    /*trabajar en pequeño*/
+    /*width: 40%;*/
+  }
 }
