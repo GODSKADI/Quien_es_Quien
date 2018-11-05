@@ -126,16 +126,14 @@
     //--------------------------------------------------------------------//
     //Random del Array de imagenes para la carta del servidor
     $imgSelecServer = array_rand($imagenes);
-    $imgServer=$imagenes[$imgSelecServer];
+    $imgServer=$imgAtributo[$imgSelecServer][0];
     //--------------------------------------------------------------------------------
     //Guardar carta servidor en la Session
     if (!isset($_SESSION['imgServerSession'])) {
-      $_SESSION['imgServerSession'] = $imgServer;
-
+      $_SESSION['imgServerSession'] = $imgAtributo[$imgSelecServer];
     }
     //---------------------------------------------------------------------------------
     $c = 0;
-
 
     echo "<div class='contenedorCartaServer'>";
       echo "<div class='ranking1'><p class='ranking'><a>Ranking</a></p>";
@@ -160,9 +158,11 @@
       }
       fclose ($archivo);
       echo "</div>";
-      echo "<div id='cartaS' data-gafas='$Ulleress[$imgSelecServer]' data-pelo='$Cabells[$imgSelecServer]' data-genero='$Sexes[$imgSelecServer]' class='cartaServer'>";
+      $auxiliarCookyServer = $_SESSION['imgServerSession'];
+
+      echo "<div id='cartaS' data-gafas='".$auxiliarCookyServer[1]."' data-pelo='".$auxiliarCookyServer[2]."'data-genero='".$auxiliarCookyServer[3]."' class='cartaServer'>";
           echo "<div class='frontalServer'><img src='imagenes/back_img.jpg'></div>";
-          echo "<div class='traseraServer'><img src='imagenes/".$_SESSION["imgServerSession"]."'></div>";
+          echo "<div class='traseraServer'><img src='imagenes/".$_SESSION["imgServerSession"][0]."'></div>";
       echo "</div>";
     echo "</div>";
     echo "<div class='contenido'>";
@@ -224,8 +224,8 @@
       echo "<div class='contador'><p>NºPreguntes:</p><p id='contadorPreguntas'>&#8224;</p></div>";
       echo "</div>";
       echo "</div>";
+      //--------------------------------------------------------------------------------------------------
       //Modal
-
       echo "<div id='myModal' class='modal'>
           <div class='modal-content'>
             <a href='killSession.php'><span class='close' onclick='cerrarModal()'>&times;</span></a>
