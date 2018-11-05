@@ -1,6 +1,8 @@
 //funcion que se le pasa un parametro (el num de id) para diferenciar id's.
 //funcion que hace girar las cartas del cliente y se bloquean para no poder girarlas de nuevo.
 //Ademas llama a la funcion coprovarCartasGiradas().
+
+var contadorPreguntas = 0;
 $numCartasGiradas = 0;
 var contadorPregunta = 0;
 var sonidoGirarCarta = new Audio('sonidos/giro.mp3');
@@ -12,9 +14,11 @@ function girarCartas(c) {
       idCarta.removeAttribute("onclick");
       sonidoGirarCarta.play();
       $numCartasGiradas++
+      contadorPreguntas = 0;
     }
     coprovarCartasGiradas();
 }
+
 function preguntaServidor() {
   var idComboPelo = document.getElementById('pelo');
   var idComboSexo = document.getElementById('sexo');
@@ -25,83 +29,108 @@ function preguntaServidor() {
   //return idComboGafas.value;
   /*-------------------------------------------------------------*/
   /*Combo box Gafas*/
-  if(idComboGafas.value=="gafas"){
-    if(Vgafas=="si"){
-
-      document.getElementById('iconoVerde').style.visibility = "visible";
-return "El servidor contesta :<br>¿Tiene Gafas? Si";
-    }else{
-
-      document.getElementById('iconoRojo').style.visibility = "visible";
-      return "El servidor contesta :<br>¿Tiene Gafas? No";
-
-    }
-  }else if(idComboGafas.value=="no_gafas"){
-    if(Vgafas=="no"){
-
-      document.getElementById('iconoVerde').style.visibility = "visible";
-return "El servidor contesta :<br>¿No tiene Gafas? Si";
-    }else{
-
-      document.getElementById('iconoRojo').style.visibility = "visible";
-return "El servidor contesta :<br>¿No Tiene Gafas? No";
-    }
-  }
-  /*------------------------------------------------------------*/
-  /*Combo box Genero*/
-  if(idComboSexo.value=="hombre"){
-    if(Vgenero=="home"){
-
-      document.getElementById('iconoVerde').style.visibility = "visible";
-return "El servidor contesta :<br>¿Es hombre? Si";
-    }else{
-
-      document.getElementById('iconoRojo').style.visibility = "visible";
-return "El servidor contesta :<br>¿Es Hombre? No";
-    }
-  }else if (idComboSexo.value=="mujer") {
-    if(Vgenero=="dona"){
-
-      document.getElementById('iconoVerde').style.visibility = "visible";
-  return "El servidor contesta :<br>¿Es Mujer? Si";
-    }else{
-
-      document.getElementById('iconoRojo').style.visibility = "visible";
-return "El servidor contesta :<br>¿Es Mujer? No";
-    }
-  }
-  /*------------------------------------------------------------*/
-  /*Combo box Pelo*/
-  if(idComboPelo.value=="rubio"){
-    if(Vpelo=="ros"){
-      document.getElementById('iconoVerde').style.visibility = "visible";
-      return "El servidor contesta :<br>¿El color del Pelo es rubio? Si";
-
-    }else {
-      document.getElementById('iconoRojo').style.visibility = "visible";
-      return "El servidor contesta :<br>¿El color del Pelo es rubio? No";
-
-    }
-  }else if (idComboPelo.value=="moreno") {
-    if (Vpelo=="castany") {
+  if(contadorPreguntas == 0){
+    if(idComboGafas.value=="gafas"){
+      if(Vgafas=="si"){
         document.getElementById('iconoVerde').style.visibility = "visible";
-      return "El servidor contesta :<br>¿El color del Pelo es moreno? Si";
-
-    } else {
-      document.getElementById('iconoRojo').style.visibility = "visible";
-      return "El servidor contesta :<br>¿El color del Pelo es moreno? No";
-
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿Tiene Gafas? Si";
+      }else{
+        document.getElementById('iconoRojo').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿Tiene Gafas? No";
+      }
+    }else if(idComboGafas.value=="no_gafas"){
+      if(Vgafas=="no"){
+        document.getElementById('iconoVerde').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿No tiene Gafas? Si";
+      }else{
+        document.getElementById('iconoRojo').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿No Tiene Gafas? No";
+      }
     }
-  }else if (idComboPelo.value=="negro") {
-    if (Vpelo=="negre") {
-      document.getElementById('iconoVerde').style.visibility = "visible";
-      return "El servidor contesta :<br>¿El color del Pelo es negro? Si";
-
-    } else {
-      document.getElementById('iconoRojo').style.visibility = "visible";
-      return "El servidor contesta :<br>¿El color del Pelo es negro? No";
-
+    /*------------------------------------------------------------*/
+    /*Combo box Genero*/
+    if(idComboSexo.value=="hombre"){
+      if(Vgenero=="home"){
+        document.getElementById('iconoVerde').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿Es hombre? Si";
+      }else{
+        document.getElementById('iconoRojo').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿Es Hombre? No";
+      }
+    }else if (idComboSexo.value=="mujer") {
+      if(Vgenero=="dona"){
+        document.getElementById('iconoVerde').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿Es Mujer? Si";
+      }else{
+        document.getElementById('iconoRojo').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿Es Mujer? No";
+      }
     }
+    /*------------------------------------------------------------*/
+    /*Combo box Pelo*/
+    if(idComboPelo.value=="rubio"){
+      if(Vpelo=="ros"){
+        document.getElementById('iconoVerde').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿El color del Pelo es rubio? Si";
+
+      }else {
+        document.getElementById('iconoRojo').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿El color del Pelo es rubio? No";
+
+      }
+    }else if (idComboPelo.value=="moreno") {
+      if (Vpelo=="castany") {
+          document.getElementById('iconoVerde').style.visibility = "visible";
+          contadorPreguntas++;
+          alert(contadorPreguntas);
+          return "El servidor contesta :<br>¿El color del Pelo es moreno? Si";
+
+      } else {
+        document.getElementById('iconoRojo').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿El color del Pelo es moreno? No";
+
+      }
+    }else if (idComboPelo.value=="negro") {
+      if (Vpelo=="negre") {
+        document.getElementById('iconoVerde').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿El color del Pelo es negro? Si";
+
+      } else {
+        document.getElementById('iconoRojo').style.visibility = "visible";
+        contadorPreguntas++;
+        alert(contadorPreguntas);
+        return "El servidor contesta :<br>¿El color del Pelo es negro? No";
+
+      }
+    }
+  }else{
+    document.getElementById('iconoRojo').style.visibility = "visible";
+    contadorPreguntas = 0;
+    return "Seguro que quieres realizar otra pregunta sin girar ninguna carta?";
   }
 }
 //Funcion que valida que se hagan las preguntas con ciertas reglas.
@@ -198,3 +227,9 @@ window.onclick = function(event) {
     }
 }
 */
+//---------------------------------------------------------------------------------------
+//EasterEgg
+
+function easterEgg(){
+
+}
