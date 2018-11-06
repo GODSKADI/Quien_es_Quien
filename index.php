@@ -135,6 +135,7 @@
     //---------------------------------------------------------------------------------
     $c = 0;
 
+
     echo "<div class='contenedorCartaServer'>";
       echo "<div class='ranking1'><p class='ranking'><a>Ranking</a></p>";
       $archivo = fopen ("records.txt","r");
@@ -161,7 +162,7 @@
       $auxiliarCookyServer = $_SESSION['imgServerSession'];
 
       echo "<div id='cartaS' data-gafas='".$auxiliarCookyServer[1]."' data-pelo='".$auxiliarCookyServer[2]."'data-genero='".$auxiliarCookyServer[3]."' class='cartaServer'>";
-          echo "<div class='frontalServer'><img src='imagenes/back_img.jpg'></div>";
+          echo "<a href='Index.php'><div class='frontalServer'><img src='imagenes/back_img.jpg'></div></a>";
           echo "<div class='traseraServer'><img src='imagenes/".$_SESSION["imgServerSession"][0]."'></div>";
       echo "</div>";
     echo "</div>";
@@ -237,8 +238,9 @@
               <a href='killSession.php'><input type='button' value='No' onclick='cerrarModal()'></input></a>
               <div id='guardarNombre' style='visibility: hidden'>
                 <h3>Introduce tu Nombre:</h3>
-                <form  action='killSession.php' method='post'>
-                  <input id='contadorPreguntas' type='text' name='nombre'></input>
+                <form name='form' action='killSession.php' method='post'>
+                  <input type='text' name='nombre'></input>
+                  <input id='contadorPreguntas' type='text' name='contadorPregunta'></input>
                   <a href='killSession.php'><input type='submit' value='Guardar'></input></a>
                 </form>
               </div>

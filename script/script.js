@@ -200,6 +200,7 @@ function validar(){
     idValidacion.style.color = "white";
     contadorPregunta++;
     document.getElementById('contadorPreguntas').innerHTML = contadorPregunta;
+    document.form.contadorPregunta.value = contadorPregunta;
     //alert(contadorPregunta);
 
   }
@@ -326,10 +327,3 @@ window.onclick = function(event) {
     }
 }
 */
-//---------------------------------------------------------------------------------------
-//EasterEgg
-
-function easterEgg(){
-
-}
-/*Mode EASY*/
