@@ -1,7 +1,7 @@
 //funcion que se le pasa un parametro (el num de id) para diferenciar id's.
 //funcion que hace girar las cartas del cliente y se bloquean para no poder girarlas de nuevo.
 //Ademas llama a la funcion coprovarCartasGiradas().
-
+var GlobalMode = 0;
 var contadorPreguntas = 0;
 var contPregsSinReinicio = 0;
 
@@ -40,11 +40,17 @@ function preguntaServidor() {
         document.getElementById('iconoVerde').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("gafas","si","0");
+        }
         return "El servidor contesta :<br>¿Tiene Gafas? Si";
       }else{
         document.getElementById('iconoRojo').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("gafas","no","0");
+        }
         return "El servidor contesta :<br>¿Tiene Gafas? No";
       }
     }else if(idComboGafas.value=="no_gafas"){
@@ -52,11 +58,17 @@ function preguntaServidor() {
         document.getElementById('iconoVerde').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("no_gafas","si","0");
+        }
         return "El servidor contesta :<br>¿No tiene Gafas? Si";
       }else{
         document.getElementById('iconoRojo').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("no_gafas","no","0");
+        }
         return "El servidor contesta :<br>¿No Tiene Gafas? No";
       }
     }
@@ -67,11 +79,17 @@ function preguntaServidor() {
         document.getElementById('iconoVerde').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("genero","home","si");
+        }
         return "El servidor contesta :<br>¿Es hombre? Si";
       }else{
         document.getElementById('iconoRojo').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("genero","dona","si");
+        }
         return "El servidor contesta :<br>¿Es Hombre? No";
       }
     }else if (idComboSexo.value=="mujer") {
@@ -79,11 +97,17 @@ function preguntaServidor() {
         document.getElementById('iconoVerde').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("genero","dona","si");
+        }
         return "El servidor contesta :<br>¿Es Mujer? Si";
       }else{
         document.getElementById('iconoRojo').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("genero","home","si");
+        }
         return "El servidor contesta :<br>¿Es Mujer? No";
       }
     }
@@ -94,12 +118,18 @@ function preguntaServidor() {
         document.getElementById('iconoVerde').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("pelo","rubio","si");
+        }
         return "El servidor contesta :<br>¿El color del Pelo es rubio? Si";
 
       }else {
         document.getElementById('iconoRojo').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("pelo","rubio","no");
+        }
         return "El servidor contesta :<br>¿El color del Pelo es rubio? No";
 
       }
@@ -108,11 +138,17 @@ function preguntaServidor() {
           document.getElementById('iconoVerde').style.visibility = "visible";
           contadorPreguntas++;
           contPregsSinReinicio++;
+          if(GlobalMode ==1){
+            voltearModoEasy("pelo","moreno","si");
+          }
           return "El servidor contesta :<br>¿El color del Pelo es moreno? Si";
       } else {
         document.getElementById('iconoRojo').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("pelo","moreno","no");
+        }
         return "El servidor contesta :<br>¿El color del Pelo es moreno? No";
       }
     }else if (idComboPelo.value=="negro") {
@@ -120,17 +156,24 @@ function preguntaServidor() {
         document.getElementById('iconoVerde').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("pelo","negro","si");
+        }
         return "El servidor contesta :<br>¿El color del Pelo es negro? Si";
       } else {
         document.getElementById('iconoRojo').style.visibility = "visible";
         contadorPreguntas++;
         contPregsSinReinicio++;
+        if(GlobalMode ==1){
+          voltearModoEasy("pelo","negro",no);
+        }
         return "El servidor contesta :<br>¿El color del Pelo es negro? No";
       }
     }
   }else if(contPregsSinReinicio < 2){
       contadorPreguntas = 0;
       contPregsSinReinicio++;
+      contadorPregunta--;
       return "Seguro que quieres realizar otra pregunta sin girar ninguna carta?";
   }
 }
@@ -166,7 +209,62 @@ function validar(){
 
 }
 function easyMode(){
+  GlobalMode =1;
   document.getElementById('easyButon').disabled = true;
+  contPregsSinReinicio = 3;
+  var tablero = document.getElementsByClassName("cartaCliente");
+  for (var i = 0; i < tablero.length; i++) {
+      tablero[i].removeAttribute("onclick");
+  }
+}
+function voltearModoEasy(tipo,condicion,condicion2){
+  var tablero = document.getElementsByClassName("chosenOne");
+  if("genero"==tipo){
+    for (var i = 0; i < tablero.length; i++) {
+      var aux = tablero[i].dataset.genero;
+        alert("Genero "+aux+" "+condicion);
+      if(aux != condicion){
+        alert(aux+" "+condicion);
+        tablero[i].classList.toggle("girada");
+        tablero[i].classList.remove("chosenOne");
+        numCartasGiradas++;
+      }
+    }
+  }
+  if("gafas"==tipo){
+    for (var i = 0; i < tablero.length; i++) {
+      var aux = tablero[i].dataset.gafas;
+        alert("Gafas "+aux+" "+condicion);
+      /*if(aux != condicion){
+        alert(aux+" "+condicion);
+        tablero[i].classList.toggle("girada");
+        tablero[i].classList.remove("chosenOne");
+        numCartasGiradas++;
+      }*/
+    }
+  }
+  /*if("pelo"==tipo){
+    for (var i = 0; i < tablero.length; i++) {
+      var aux = tablero[i].dataset.pelo;
+        alert("Pelo "+aux+" "+condicion+" "+condicion2);
+      if(condicion2==no){
+        if(aux == condicion){
+          alert("no: "+aux+" "+condicion);
+          tablero[i].classList.toggle("girada");
+          tablero[i].classList.remove("chosenOne");
+          numCartasGiradas++;
+        }
+      }else{
+        if(aux!=condicion){
+          alert("si: "+aux+" "+condicion);
+          tablero[i].classList.toggle("girada");
+          tablero[i].classList.remove("chosenOne");
+          numCartasGiradas++;
+        }
+      }
+
+    }
+  }*/
 
 }
 
@@ -234,3 +332,4 @@ window.onclick = function(event) {
 function easterEgg(){
 
 }
+/*Mode EASY*/

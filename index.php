@@ -221,7 +221,7 @@
       </div>";
       echo "<input type='button' value='Preguntar' onclick='validar()'></input>";
       echo "<input id='easyButon' class='easy' type='button' value='EASY' onclick='easyMode()' ></input>";
-      echo "<div class='contador'><p>NºPreguntes:</p><p id='contadorPreguntas'>&#8224;</p></div>";
+      echo "<div class='contador'><p>NºPreguntes:</p><p id='contadorPreguntas'>0</p></div>";
       echo "</div>";
       echo "</div>";
       //--------------------------------------------------------------------------------------------------
