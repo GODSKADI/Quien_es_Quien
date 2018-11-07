@@ -182,7 +182,7 @@
 
           $auxiliarCooky = $_SESSION['imgClienteSession'];
           echo "<td>";
-            echo "<div id='carta$c' data-gafas='".$auxiliarCooky[$c][1]."' data-pelo='".$auxiliarCooky[$c][2]."' data-genero='".$auxiliarCooky[$c][3]."' class='cartaCliente chosenOne' onclick='girarCartas($c)'>";
+            echo "<div id='carta$c' data-girado='0' data-gafas='".$auxiliarCooky[$c][1]."' data-pelo='".$auxiliarCooky[$c][2]."' data-genero='".$auxiliarCooky[$c][3]."' class='cartaCliente chosenOne' onclick='girarCartas($c)'>";
               echo "<div class='frontal BN' ><img src='imagenes/".$_SESSION['imgClienteSession'][$c][0]."'></div>";
               echo "<div class='trasera BN'><img src='imagenes/back_img.jpg'></div>";
             echo "</div>";

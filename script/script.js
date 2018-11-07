@@ -41,7 +41,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("gafas","si","0");
+          SeleccionCartasModoEasy("gafas","si","0");
         }
         return "El servidor contesta :<br>¿Tiene Gafas? Si";
       }else{
@@ -49,7 +49,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("gafas","no","0");
+          SeleccionCartasModoEasy("gafas","no","0");
         }
         return "El servidor contesta :<br>¿Tiene Gafas? No";
       }
@@ -59,7 +59,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("no_gafas","si","0");
+          SeleccionCartasModoEasy("no_gafas","si","0");
         }
         return "El servidor contesta :<br>¿No tiene Gafas? Si";
       }else{
@@ -67,7 +67,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("no_gafas","no","0");
+          SeleccionCartasModoEasy("no_gafas","no","0");
         }
         return "El servidor contesta :<br>¿No Tiene Gafas? No";
       }
@@ -80,7 +80,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("genero","home","si");
+          SeleccionCartasModoEasy("genero","home","si");
         }
         return "El servidor contesta :<br>¿Es hombre? Si";
       }else{
@@ -88,7 +88,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("genero","dona","si");
+          SeleccionCartasModoEasy("genero","dona","si");
         }
         return "El servidor contesta :<br>¿Es Hombre? No";
       }
@@ -98,7 +98,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("genero","dona","si");
+          SeleccionCartasModoEasy("genero","dona","si");
         }
         return "El servidor contesta :<br>¿Es Mujer? Si";
       }else{
@@ -106,7 +106,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("genero","home","si");
+          SeleccionCartasModoEasy("genero","home","si");
         }
         return "El servidor contesta :<br>¿Es Mujer? No";
       }
@@ -119,7 +119,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("pelo","rubio","si");
+          SeleccionCartasModoEasy("pelo","rubio","si");
         }
         return "El servidor contesta :<br>¿El color del Pelo es rubio? Si";
 
@@ -128,7 +128,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("pelo","rubio","no");
+          SeleccionCartasModoEasy("pelo","rubio","no");
         }
         return "El servidor contesta :<br>¿El color del Pelo es rubio? No";
 
@@ -139,7 +139,7 @@ function preguntaServidor() {
           contadorPreguntas++;
           contPregsSinReinicio++;
           if(GlobalMode ==1){
-            voltearModoEasy("pelo","moreno","si");
+            SeleccionCartasModoEasy("pelo","moreno","si");
           }
           return "El servidor contesta :<br>¿El color del Pelo es moreno? Si";
       } else {
@@ -147,7 +147,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("pelo","moreno","no");
+          SeleccionCartasModoEasy("pelo","moreno","no");
         }
         return "El servidor contesta :<br>¿El color del Pelo es moreno? No";
       }
@@ -157,7 +157,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("pelo","negro","si");
+          SeleccionCartasModoEasy("pelo","negro","si");
         }
         return "El servidor contesta :<br>¿El color del Pelo es negro? Si";
       } else {
@@ -165,7 +165,7 @@ function preguntaServidor() {
         contadorPreguntas++;
         contPregsSinReinicio++;
         if(GlobalMode ==1){
-          voltearModoEasy("pelo","negro",no);
+          SeleccionCartasModoEasy("pelo","negro",no);
         }
         return "El servidor contesta :<br>¿El color del Pelo es negro? No";
       }
@@ -218,20 +218,20 @@ function easyMode(){
       tablero[i].removeAttribute("onclick");
   }
 }
-function voltearModoEasy(tipo,condicion,condicion2){
-  var tablero = document.getElementsByClassName("chosenOne");
-  if("genero"==tipo){
-    for (var i = 0; i < tablero.length; i++) {
-      var aux = tablero[i].dataset.genero;
-        alert("Genero "+aux+" "+condicion);
-      if(aux != condicion){
-        alert(aux+" "+condicion);
-        tablero[i].classList.toggle("girada");
-        tablero[i].classList.remove("chosenOne");
-        numCartasGiradas++;
+function SeleccionCartasModoEasy(tipo,condicion,condicion2){
+  var tablero = document.getElementsByClassName("cartaCliente");
+  console.log(tablero);
+  var aux = [];
+  for (var i = 0; i < tablero.length; i++) {
+    if(tablero[i].dataset.genero!=condicion){
+      if(tablero[i].dataset.girado=="0"){
+        console.log(tablero[i]);
+        voltearCarta(tablero[i]);
+        numCartasGiradas++
       }
     }
   }
+  /*
   if("gafas"==tipo){
     for (var i = 0; i < tablero.length; i++) {
       var aux = tablero[i].dataset.gafas;
@@ -241,7 +241,7 @@ function voltearModoEasy(tipo,condicion,condicion2){
         tablero[i].classList.toggle("girada");
         tablero[i].classList.remove("chosenOne");
         numCartasGiradas++;
-      }*/
+      }*//*
     }
   }
   /*if("pelo"==tipo){
@@ -266,9 +266,12 @@ function voltearModoEasy(tipo,condicion,condicion2){
 
     }
   }*/
-
 }
-
+function voltearCarta(carta) {
+  console.log("Voltear Carta: "+carta);
+  carta.classList.toggle("girada");
+  carta.dataset.girado = "1";
+}
 //Funcion que comprueva que hay 11 cartas dadas la vuelta.
 function coprovarCartasGiradas(){
   var cartasGiradas = document.getElementsByClassName('girada');
