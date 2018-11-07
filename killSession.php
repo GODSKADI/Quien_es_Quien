@@ -7,7 +7,7 @@ if($_POST["nombre"] != null){
   $nombre = $_POST["nombre"];
   $contadorPregunta = $_POST["contadorPregunta"];
   $fp = fopen("records.txt","a");
-  fwrite($fp, "$contadorPregunta $nombre"  . PHP_EOL);
+  fwrite($fp, "$contadorPregunta - $nombre"  . PHP_EOL);
   fclose($fp);
 }
 

@@ -28,7 +28,6 @@ function preguntaServidor() {
   var Vgafas = document.getElementById("cartaS").dataset.gafas;
   var Vgenero =document.getElementById("cartaS").dataset.genero;
   var Vpelo =document.getElementById("cartaS").dataset.pelo;
-  //return idComboGafas.value;
   /*-------------------------------------------------------------*/
   /*Combo box Gafas*/
   if(contPregsSinReinicio > 2){
@@ -195,14 +194,11 @@ function validar(){
     idValidacion.innerHTML = "No estas haciendo ninguna pregunta.";
     idValidacion.style.color = "red";
   }else{
-    /*idValidacion.innerHTML = "cosas para el bot";*/
     idValidacion.innerHTML = preguntaServidor();
     idValidacion.style.color = "white";
     contadorPregunta++;
     document.getElementById('contadorPreguntas').innerHTML = contadorPregunta;
     document.form.contadorPregunta.value = contadorPregunta;
-    //alert(contadorPregunta);
-
   }
   if(document.getElementById('easyButon').disabled == false){
     document.getElementById('easyButon').style.visibility = "hidden";
@@ -322,11 +318,3 @@ function cerrarModal() {
   var modal = document.getElementById('myModal');
   modal.style.display = "none";
 }
-/*
-window.onclick = function(event) {
-  var modal = document.getElementById('myModal');
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-*/
