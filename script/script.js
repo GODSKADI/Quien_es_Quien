@@ -28,6 +28,7 @@ function preguntaServidor() {
   var Vgafas = document.getElementById("cartaS").dataset.gafas;
   var Vgenero =document.getElementById("cartaS").dataset.genero;
   var Vpelo =document.getElementById("cartaS").dataset.pelo;
+
   /*-------------------------------------------------------------*/
   /*Combo box Gafas*/
   if(contPregsSinReinicio > 2){
@@ -71,6 +72,7 @@ function preguntaServidor() {
         return "El servidor contesta :<br>¿No Tiene Gafas? No";
       }
     }
+
     /*------------------------------------------------------------*/
     /*Combo box Genero*/
     if(idComboSexo.value=="hombre"){
@@ -110,6 +112,7 @@ function preguntaServidor() {
         return "El servidor contesta :<br>¿Es Mujer? No";
       }
     }
+
     /*------------------------------------------------------------*/
     /*Combo box Pelo*/
     if(idComboPelo.value=="rubio"){
@@ -176,6 +179,7 @@ function preguntaServidor() {
       return "Seguro que quieres realizar otra pregunta sin girar ninguna carta?";
   }
 }
+
 //Funcion que valida que se hagan las preguntas con ciertas reglas.
 function validar(){
   var idComboPelo = document.getElementById('pelo');
@@ -268,6 +272,7 @@ function voltearCarta(carta) {
   carta.classList.toggle("girada");
   carta.dataset.girado = "1";
 }
+
 //Funcion que comprueva que hay 11 cartas dadas la vuelta.
 function coprovarCartasGiradas(){
   var cartasGiradas = document.getElementsByClassName('girada');
@@ -282,24 +287,24 @@ function girarCartaServer(){
   idCartaServer.classList.toggle("girada");
   comprovarCartas();
 }
-//var SonidoGanar = new Audio();
-//var SonidoPerder = new Audio();
+
+var SonidoGanar = new Audio('sonidos/ganar.mp3');
+var SonidoPerder = new Audio('sonidos/perder.mp3');
 function comprovarCartas(){
   var srcCartaServer = document.getElementById('cartaS').childNodes[1].firstChild.src;
   var CartaCliente = document.getElementsByClassName('chosenOne')[0];
   var srcCartaCliente = CartaCliente.childNodes[0].firstChild.src;
   if(srcCartaServer == srcCartaCliente){
     abrirModal("HAS GANADO");
-    //SonidoGanar.play();
+    SonidoGanar.play();
   }else{
     abrirModal("HAS PERDIDO");
-    //SonidoPerder.play();
+    SonidoPerder.play();
   }
 }
 
 //--------------------------------------------------------------------------------------
 //Modal
-
 function abrirModal(resultado) {
   var modal = document.getElementById('myModal');
   document.getElementById('resultado').innerHTML = resultado;

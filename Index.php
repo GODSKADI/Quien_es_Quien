@@ -229,9 +229,13 @@
       //Modal
       echo "<div id='myModal' class='modal'>
           <div class='modal-content'>
-            <a href='killSession.php'><span class='close' onclick='abrirModal()'>&times;</span></a>
+            <span id='icnCerrar' class='close' onclick='cerrarModal()'>&times;</span>
             <h1 id='resultado'></h1>
-            <a id='reiniciarPartida' href='killSession.php'><input type='button' value='Reiniciar'></input></a>
+            <input id='btnCerrar' type='button' value='Cerrar' onclick='cerrarModal()'></input>
+            <div id='consequencias' hidden>
+              <h1>Espero que hayas aprendido la lección.</h1>
+              <a id='reiniciarPartida' href='killSession.php'><input type='button' value='Reiniciar'></input></a>
+            </div>
           </div>
         </div>";
      ?>
